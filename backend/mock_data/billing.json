@@ -1,0 +1,134 @@
+[
+  {
+    "id": "bill-2025-06",
+    "month": "Jun 2025",
+    "bill_amount": 4291.56,
+    "solar_savings": 12310.92,
+    "usage_kwh": 944.9,
+    "grid_charges": 9017.52,
+    "service_fees": 444.63,
+    "carbon_offset": 477.9,
+    "budget": 12500
+  },
+  {
+    "id": "bill-2025-07",
+    "month": "Jul 2025",
+    "bill_amount": 3658.48,
+    "solar_savings": 11247.97,
+    "usage_kwh": 880.7,
+    "grid_charges": 7949.88,
+    "service_fees": 432.75,
+    "carbon_offset": 431.0,
+    "budget": 12500
+  },
+  {
+    "id": "bill-2025-08",
+    "month": "Aug 2025",
+    "bill_amount": 2039.45,
+    "solar_savings": 11622.48,
+    "usage_kwh": 712.6,
+    "grid_charges": 6219.76,
+    "service_fees": 701.13,
+    "carbon_offset": 313.4,
+    "budget": 12500
+  },
+  {
+    "id": "bill-2025-09",
+    "month": "Sep 2025",
+    "bill_amount": 621.63,
+    "solar_savings": 17766.86,
+    "usage_kwh": 703.7,
+    "grid_charges": 7467.49,
+    "service_fees": 616.22,
+    "carbon_offset": 340.2,
+    "budget": 12500
+  },
+  {
+    "id": "bill-2025-10",
+    "month": "Oct 2025",
+    "bill_amount": 5932.14,
+    "solar_savings": 8852.65,
+    "usage_kwh": 887.4,
+    "grid_charges": 9131.78,
+    "service_fees": 518.47,
+    "carbon_offset": 393.2,
+    "budget": 12500
+  },
+  {
+    "id": "bill-2025-11",
+    "month": "Nov 2025",
+    "bill_amount": 2596.69,
+    "solar_savings": 11240.12,
+    "usage_kwh": 674.3,
+    "grid_charges": 6836.09,
+    "service_fees": 481.45,
+    "carbon_offset": 346.0,
+    "budget": 12500
+  },
+  {
+    "id": "bill-2025-12",
+    "month": "Dec 2025",
+    "bill_amount": 3579.14,
+    "solar_savings": 11822.78,
+    "usage_kwh": 883.5,
+    "grid_charges": 8103.36,
+    "service_fees": 441.35,
+    "carbon_offset": 379.5,
+    "budget": 12500
+  },
+  {
+    "id": "bill-2026-01",
+    "month": "Jan 2026",
+    "bill_amount": 1618.16,
+    "solar_savings": 14630.53,
+    "usage_kwh": 828.0,
+    "grid_charges": 7236.17,
+    "service_fees": 526.81,
+    "carbon_offset": 425.3,
+    "budget": 12500
+  },
+  {
+    "id": "bill-2026-01",
+    "month": "Jan 2026",
+    "bill_amount": 5120.53,
+    "solar_savings": 11160.68,
+    "usage_kwh": 909.6,
+    "grid_charges": 9150.36,
+    "service_fees": 657.66,
+    "carbon_offset": 417.6,
+    "budget": 12500
+  },
+  {
+    "id": "bill-2026-03",
+    "month": "Mar 2026",
+    "bill_amount": 6478.12,
+    "solar_savings": 13215.69,
+    "usage_kwh": 1097.6,
+    "grid_charges": 11360.7,
+    "service_fees": 668.01,
+    "carbon_offset": 511.6,
+    "budget": 12500
+  },
+  {
+    "id": "bill-2026-04",
+    "month": "Apr 2026",
+    "bill_amount": 6794.12,
+    "solar_savings": 11935.62,
+    "usage_kwh": 1278.5,
+    "grid_charges": 11129.65,
+    "service_fees": 677.43,
+    "carbon_offset": 568.1,
+    "budget": 12500
+  },
+  {
+    "id": "bill-2026-05",
+    "month": "May 2026",
+    "bill_amount": 6276.1,
+    "solar_savings": 11032.84,
+    "usage_kwh": 1065.0,
+    "grid_charges": 10229.94,
+    "service_fees": 679.95,
+    "carbon_offset": 544.9,
+    "budget": 12500
+  }
+]

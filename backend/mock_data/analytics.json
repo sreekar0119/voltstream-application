@@ -1,0 +1,2162 @@
+[
+  {
+    "id": "an-0001",
+    "timestamp": "2026-04-27T12:00:00",
+    "energy_usage": 0.84,
+    "solar_generation": 4.56,
+    "grid_draw": 0,
+    "temperature": 78.3,
+    "voltage": 241.2,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0002",
+    "timestamp": "2026-04-27T13:00:00",
+    "energy_usage": 0.79,
+    "solar_generation": 5.72,
+    "grid_draw": 0,
+    "temperature": 80.3,
+    "voltage": 237.0,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0003",
+    "timestamp": "2026-04-27T14:00:00",
+    "energy_usage": 0.75,
+    "solar_generation": 4.6,
+    "grid_draw": 0,
+    "temperature": 79.8,
+    "voltage": 240.7,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0004",
+    "timestamp": "2026-04-27T15:00:00",
+    "energy_usage": 1.06,
+    "solar_generation": 3.44,
+    "grid_draw": 0,
+    "temperature": 81.8,
+    "voltage": 236.8,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0005",
+    "timestamp": "2026-04-27T16:00:00",
+    "energy_usage": 1.5,
+    "solar_generation": 2.81,
+    "grid_draw": 0,
+    "temperature": 78.0,
+    "voltage": 242.5,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0006",
+    "timestamp": "2026-04-27T17:00:00",
+    "energy_usage": 1.87,
+    "solar_generation": 1.21,
+    "grid_draw": 0.94,
+    "temperature": 78.9,
+    "voltage": 240.2,
+    "cost": 9.84
+  },
+  {
+    "id": "an-0007",
+    "timestamp": "2026-04-27T18:00:00",
+    "energy_usage": 2.4,
+    "solar_generation": 0.0,
+    "grid_draw": 2.43,
+    "temperature": 76.9,
+    "voltage": 238.5,
+    "cost": 25.48
+  },
+  {
+    "id": "an-0008",
+    "timestamp": "2026-04-27T19:00:00",
+    "energy_usage": 2.51,
+    "solar_generation": 0,
+    "grid_draw": 2.55,
+    "temperature": 73.6,
+    "voltage": 239.6,
+    "cost": 26.8
+  },
+  {
+    "id": "an-0009",
+    "timestamp": "2026-04-27T20:00:00",
+    "energy_usage": 2.39,
+    "solar_generation": 0,
+    "grid_draw": 2.35,
+    "temperature": 68.2,
+    "voltage": 236.7,
+    "cost": 24.73
+  },
+  {
+    "id": "an-0010",
+    "timestamp": "2026-04-27T21:00:00",
+    "energy_usage": 1.86,
+    "solar_generation": 0,
+    "grid_draw": 1.84,
+    "temperature": 66.4,
+    "voltage": 238.5,
+    "cost": 19.33
+  },
+  {
+    "id": "an-0011",
+    "timestamp": "2026-04-27T22:00:00",
+    "energy_usage": 1.42,
+    "solar_generation": 0,
+    "grid_draw": 1.39,
+    "temperature": 64.7,
+    "voltage": 240.3,
+    "cost": 10.1
+  },
+  {
+    "id": "an-0012",
+    "timestamp": "2026-04-27T23:00:00",
+    "energy_usage": 1.09,
+    "solar_generation": 0,
+    "grid_draw": 1.15,
+    "temperature": 59.2,
+    "voltage": 238.8,
+    "cost": 8.35
+  },
+  {
+    "id": "an-0013",
+    "timestamp": "2026-04-28T00:00:00",
+    "energy_usage": 0.77,
+    "solar_generation": 0,
+    "grid_draw": 0.8,
+    "temperature": 59.3,
+    "voltage": 241.7,
+    "cost": 5.82
+  },
+  {
+    "id": "an-0014",
+    "timestamp": "2026-04-28T01:00:00",
+    "energy_usage": 0.77,
+    "solar_generation": 0,
+    "grid_draw": 0.7,
+    "temperature": 56.7,
+    "voltage": 238.2,
+    "cost": 5.08
+  },
+  {
+    "id": "an-0015",
+    "timestamp": "2026-04-28T02:00:00",
+    "energy_usage": 0.74,
+    "solar_generation": 0,
+    "grid_draw": 0.84,
+    "temperature": 56.3,
+    "voltage": 240.5,
+    "cost": 6.09
+  },
+  {
+    "id": "an-0016",
+    "timestamp": "2026-04-28T03:00:00",
+    "energy_usage": 0.98,
+    "solar_generation": 0,
+    "grid_draw": 0.99,
+    "temperature": 56.5,
+    "voltage": 238.0,
+    "cost": 7.16
+  },
+  {
+    "id": "an-0017",
+    "timestamp": "2026-04-28T04:00:00",
+    "energy_usage": 1.27,
+    "solar_generation": 0,
+    "grid_draw": 1.31,
+    "temperature": 60.2,
+    "voltage": 238.9,
+    "cost": 9.47
+  },
+  {
+    "id": "an-0018",
+    "timestamp": "2026-04-28T05:00:00",
+    "energy_usage": 1.46,
+    "solar_generation": 0,
+    "grid_draw": 1.48,
+    "temperature": 58.9,
+    "voltage": 236.7,
+    "cost": 10.74
+  },
+  {
+    "id": "an-0019",
+    "timestamp": "2026-04-28T06:00:00",
+    "energy_usage": 1.65,
+    "solar_generation": 0,
+    "grid_draw": 1.73,
+    "temperature": 62.7,
+    "voltage": 236.7,
+    "cost": 12.55
+  },
+  {
+    "id": "an-0020",
+    "timestamp": "2026-04-28T07:00:00",
+    "energy_usage": 1.81,
+    "solar_generation": 1.57,
+    "grid_draw": 0.7,
+    "temperature": 67.8,
+    "voltage": 241.8,
+    "cost": 5.08
+  },
+  {
+    "id": "an-0021",
+    "timestamp": "2026-04-28T08:00:00",
+    "energy_usage": 1.63,
+    "solar_generation": 2.83,
+    "grid_draw": 0,
+    "temperature": 69.1,
+    "voltage": 238.4,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0022",
+    "timestamp": "2026-04-28T09:00:00",
+    "energy_usage": 1.58,
+    "solar_generation": 3.32,
+    "grid_draw": 0,
+    "temperature": 71.9,
+    "voltage": 242.5,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0023",
+    "timestamp": "2026-04-28T10:00:00",
+    "energy_usage": 1.37,
+    "solar_generation": 4.28,
+    "grid_draw": 0,
+    "temperature": 73.7,
+    "voltage": 242.3,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0024",
+    "timestamp": "2026-04-28T11:00:00",
+    "energy_usage": 1.12,
+    "solar_generation": 4.82,
+    "grid_draw": 0,
+    "temperature": 77.9,
+    "voltage": 237.7,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0025",
+    "timestamp": "2026-04-28T12:00:00",
+    "energy_usage": 0.93,
+    "solar_generation": 5.37,
+    "grid_draw": 0,
+    "temperature": 79.5,
+    "voltage": 236.8,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0026",
+    "timestamp": "2026-04-28T13:00:00",
+    "energy_usage": 0.75,
+    "solar_generation": 4.4,
+    "grid_draw": 0,
+    "temperature": 82.1,
+    "voltage": 241.8,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0027",
+    "timestamp": "2026-04-28T14:00:00",
+    "energy_usage": 0.82,
+    "solar_generation": 4.0,
+    "grid_draw": 0,
+    "temperature": 82.8,
+    "voltage": 237.3,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0028",
+    "timestamp": "2026-04-28T15:00:00",
+    "energy_usage": 1.1,
+    "solar_generation": 3.28,
+    "grid_draw": 0,
+    "temperature": 81.7,
+    "voltage": 237.6,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0029",
+    "timestamp": "2026-04-28T16:00:00",
+    "energy_usage": 1.51,
+    "solar_generation": 2.69,
+    "grid_draw": 0,
+    "temperature": 80.9,
+    "voltage": 239.3,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0030",
+    "timestamp": "2026-04-28T17:00:00",
+    "energy_usage": 1.94,
+    "solar_generation": 1.39,
+    "grid_draw": 1.01,
+    "temperature": 76.3,
+    "voltage": 238.4,
+    "cost": 10.59
+  },
+  {
+    "id": "an-0031",
+    "timestamp": "2026-04-28T18:00:00",
+    "energy_usage": 2.58,
+    "solar_generation": 0.0,
+    "grid_draw": 2.59,
+    "temperature": 75.1,
+    "voltage": 236.9,
+    "cost": 27.17
+  },
+  {
+    "id": "an-0032",
+    "timestamp": "2026-04-28T19:00:00",
+    "energy_usage": 2.56,
+    "solar_generation": 0,
+    "grid_draw": 2.59,
+    "temperature": 71.0,
+    "voltage": 237.5,
+    "cost": 27.24
+  },
+  {
+    "id": "an-0033",
+    "timestamp": "2026-04-28T20:00:00",
+    "energy_usage": 2.35,
+    "solar_generation": 0,
+    "grid_draw": 2.31,
+    "temperature": 70.6,
+    "voltage": 241.4,
+    "cost": 24.27
+  },
+  {
+    "id": "an-0034",
+    "timestamp": "2026-04-28T21:00:00",
+    "energy_usage": 1.91,
+    "solar_generation": 0,
+    "grid_draw": 1.97,
+    "temperature": 64.8,
+    "voltage": 237.1,
+    "cost": 20.64
+  },
+  {
+    "id": "an-0035",
+    "timestamp": "2026-04-28T22:00:00",
+    "energy_usage": 1.63,
+    "solar_generation": 0,
+    "grid_draw": 1.64,
+    "temperature": 64.1,
+    "voltage": 241.2,
+    "cost": 11.92
+  },
+  {
+    "id": "an-0036",
+    "timestamp": "2026-04-28T23:00:00",
+    "energy_usage": 1.02,
+    "solar_generation": 0,
+    "grid_draw": 1.03,
+    "temperature": 60.2,
+    "voltage": 239.3,
+    "cost": 7.46
+  },
+  {
+    "id": "an-0037",
+    "timestamp": "2026-04-29T00:00:00",
+    "energy_usage": 0.73,
+    "solar_generation": 0,
+    "grid_draw": 0.85,
+    "temperature": 57.0,
+    "voltage": 239.0,
+    "cost": 6.17
+  },
+  {
+    "id": "an-0038",
+    "timestamp": "2026-04-29T01:00:00",
+    "energy_usage": 0.69,
+    "solar_generation": 0,
+    "grid_draw": 0.66,
+    "temperature": 56.2,
+    "voltage": 239.3,
+    "cost": 4.79
+  },
+  {
+    "id": "an-0039",
+    "timestamp": "2026-04-29T02:00:00",
+    "energy_usage": 0.83,
+    "solar_generation": 0,
+    "grid_draw": 0.8,
+    "temperature": 58.7,
+    "voltage": 239.3,
+    "cost": 5.76
+  },
+  {
+    "id": "an-0040",
+    "timestamp": "2026-04-29T03:00:00",
+    "energy_usage": 1.13,
+    "solar_generation": 0,
+    "grid_draw": 1.06,
+    "temperature": 59.4,
+    "voltage": 241.6,
+    "cost": 7.66
+  },
+  {
+    "id": "an-0041",
+    "timestamp": "2026-04-29T04:00:00",
+    "energy_usage": 1.41,
+    "solar_generation": 0,
+    "grid_draw": 1.5,
+    "temperature": 57.3,
+    "voltage": 239.3,
+    "cost": 10.88
+  },
+  {
+    "id": "an-0042",
+    "timestamp": "2026-04-29T05:00:00",
+    "energy_usage": 1.5,
+    "solar_generation": 0,
+    "grid_draw": 1.43,
+    "temperature": 60.0,
+    "voltage": 242.4,
+    "cost": 10.35
+  },
+  {
+    "id": "an-0043",
+    "timestamp": "2026-04-29T06:00:00",
+    "energy_usage": 1.73,
+    "solar_generation": 0,
+    "grid_draw": 1.74,
+    "temperature": 62.7,
+    "voltage": 242.1,
+    "cost": 12.63
+  },
+  {
+    "id": "an-0044",
+    "timestamp": "2026-04-29T07:00:00",
+    "energy_usage": 2.0,
+    "solar_generation": 1.4,
+    "grid_draw": 1.06,
+    "temperature": 64.5,
+    "voltage": 238.3,
+    "cost": 7.7
+  },
+  {
+    "id": "an-0045",
+    "timestamp": "2026-04-29T08:00:00",
+    "energy_usage": 1.91,
+    "solar_generation": 2.72,
+    "grid_draw": 0,
+    "temperature": 70.0,
+    "voltage": 237.1,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0046",
+    "timestamp": "2026-04-29T09:00:00",
+    "energy_usage": 1.59,
+    "solar_generation": 3.76,
+    "grid_draw": 0,
+    "temperature": 70.7,
+    "voltage": 242.6,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0047",
+    "timestamp": "2026-04-29T10:00:00",
+    "energy_usage": 1.18,
+    "solar_generation": 4.17,
+    "grid_draw": 0,
+    "temperature": 75.7,
+    "voltage": 238.2,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0048",
+    "timestamp": "2026-04-29T11:00:00",
+    "energy_usage": 0.94,
+    "solar_generation": 5.72,
+    "grid_draw": 0,
+    "temperature": 77.9,
+    "voltage": 240.5,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0049",
+    "timestamp": "2026-04-29T12:00:00",
+    "energy_usage": 0.84,
+    "solar_generation": 5.44,
+    "grid_draw": 0,
+    "temperature": 81.1,
+    "voltage": 238.0,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0050",
+    "timestamp": "2026-04-29T13:00:00",
+    "energy_usage": 0.86,
+    "solar_generation": 4.73,
+    "grid_draw": 0,
+    "temperature": 81.3,
+    "voltage": 238.6,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0051",
+    "timestamp": "2026-04-29T14:00:00",
+    "energy_usage": 0.82,
+    "solar_generation": 4.94,
+    "grid_draw": 0,
+    "temperature": 80.8,
+    "voltage": 242.8,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0052",
+    "timestamp": "2026-04-29T15:00:00",
+    "energy_usage": 1.23,
+    "solar_generation": 3.28,
+    "grid_draw": 0,
+    "temperature": 79.7,
+    "voltage": 242.4,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0053",
+    "timestamp": "2026-04-29T16:00:00",
+    "energy_usage": 1.6,
+    "solar_generation": 2.95,
+    "grid_draw": 0,
+    "temperature": 78.0,
+    "voltage": 241.8,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0054",
+    "timestamp": "2026-04-29T17:00:00",
+    "energy_usage": 2.05,
+    "solar_generation": 1.42,
+    "grid_draw": 1.15,
+    "temperature": 78.1,
+    "voltage": 236.6,
+    "cost": 12.03
+  },
+  {
+    "id": "an-0055",
+    "timestamp": "2026-04-29T18:00:00",
+    "energy_usage": 2.5,
+    "solar_generation": 0.0,
+    "grid_draw": 2.55,
+    "temperature": 76.8,
+    "voltage": 237.0,
+    "cost": 26.83
+  },
+  {
+    "id": "an-0056",
+    "timestamp": "2026-04-29T19:00:00",
+    "energy_usage": 2.49,
+    "solar_generation": 0,
+    "grid_draw": 2.52,
+    "temperature": 71.2,
+    "voltage": 239.8,
+    "cost": 26.45
+  },
+  {
+    "id": "an-0057",
+    "timestamp": "2026-04-29T20:00:00",
+    "energy_usage": 2.47,
+    "solar_generation": 0,
+    "grid_draw": 2.51,
+    "temperature": 68.1,
+    "voltage": 239.1,
+    "cost": 26.39
+  },
+  {
+    "id": "an-0058",
+    "timestamp": "2026-04-29T21:00:00",
+    "energy_usage": 2.08,
+    "solar_generation": 0,
+    "grid_draw": 2.02,
+    "temperature": 65.6,
+    "voltage": 238.0,
+    "cost": 21.22
+  },
+  {
+    "id": "an-0059",
+    "timestamp": "2026-04-29T22:00:00",
+    "energy_usage": 1.36,
+    "solar_generation": 0,
+    "grid_draw": 1.4,
+    "temperature": 62.0,
+    "voltage": 240.9,
+    "cost": 10.17
+  },
+  {
+    "id": "an-0060",
+    "timestamp": "2026-04-29T23:00:00",
+    "energy_usage": 1.09,
+    "solar_generation": 0,
+    "grid_draw": 1.01,
+    "temperature": 58.8,
+    "voltage": 241.8,
+    "cost": 7.31
+  },
+  {
+    "id": "an-0061",
+    "timestamp": "2026-04-30T00:00:00",
+    "energy_usage": 0.76,
+    "solar_generation": 0,
+    "grid_draw": 0.84,
+    "temperature": 58.9,
+    "voltage": 237.5,
+    "cost": 6.11
+  },
+  {
+    "id": "an-0062",
+    "timestamp": "2026-04-30T01:00:00",
+    "energy_usage": 0.62,
+    "solar_generation": 0,
+    "grid_draw": 0.71,
+    "temperature": 58.6,
+    "voltage": 241.8,
+    "cost": 5.18
+  },
+  {
+    "id": "an-0063",
+    "timestamp": "2026-04-30T02:00:00",
+    "energy_usage": 0.92,
+    "solar_generation": 0,
+    "grid_draw": 0.89,
+    "temperature": 55.4,
+    "voltage": 241.3,
+    "cost": 6.42
+  },
+  {
+    "id": "an-0064",
+    "timestamp": "2026-04-30T03:00:00",
+    "energy_usage": 1.09,
+    "solar_generation": 0,
+    "grid_draw": 1.13,
+    "temperature": 56.0,
+    "voltage": 242.1,
+    "cost": 8.23
+  },
+  {
+    "id": "an-0065",
+    "timestamp": "2026-04-30T04:00:00",
+    "energy_usage": 1.33,
+    "solar_generation": 0,
+    "grid_draw": 1.41,
+    "temperature": 60.1,
+    "voltage": 236.6,
+    "cost": 10.23
+  },
+  {
+    "id": "an-0066",
+    "timestamp": "2026-04-30T05:00:00",
+    "energy_usage": 1.56,
+    "solar_generation": 0,
+    "grid_draw": 1.67,
+    "temperature": 61.7,
+    "voltage": 241.6,
+    "cost": 12.09
+  },
+  {
+    "id": "an-0067",
+    "timestamp": "2026-04-30T06:00:00",
+    "energy_usage": 1.79,
+    "solar_generation": 0,
+    "grid_draw": 1.87,
+    "temperature": 61.4,
+    "voltage": 241.6,
+    "cost": 13.53
+  },
+  {
+    "id": "an-0068",
+    "timestamp": "2026-04-30T07:00:00",
+    "energy_usage": 1.88,
+    "solar_generation": 1.26,
+    "grid_draw": 1.05,
+    "temperature": 65.7,
+    "voltage": 238.4,
+    "cost": 7.62
+  },
+  {
+    "id": "an-0069",
+    "timestamp": "2026-04-30T08:00:00",
+    "energy_usage": 1.77,
+    "solar_generation": 2.44,
+    "grid_draw": 0,
+    "temperature": 67.8,
+    "voltage": 238.8,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0070",
+    "timestamp": "2026-04-30T09:00:00",
+    "energy_usage": 1.57,
+    "solar_generation": 4.27,
+    "grid_draw": 0,
+    "temperature": 72.7,
+    "voltage": 239.2,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0071",
+    "timestamp": "2026-04-30T10:00:00",
+    "energy_usage": 1.33,
+    "solar_generation": 4.65,
+    "grid_draw": 0,
+    "temperature": 73.5,
+    "voltage": 242.6,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0072",
+    "timestamp": "2026-04-30T11:00:00",
+    "energy_usage": 0.9,
+    "solar_generation": 5.83,
+    "grid_draw": 0,
+    "temperature": 75.9,
+    "voltage": 239.4,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0073",
+    "timestamp": "2026-04-30T12:00:00",
+    "energy_usage": 0.87,
+    "solar_generation": 5.02,
+    "grid_draw": 0,
+    "temperature": 79.4,
+    "voltage": 239.1,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0074",
+    "timestamp": "2026-04-30T13:00:00",
+    "energy_usage": 0.77,
+    "solar_generation": 4.76,
+    "grid_draw": 0,
+    "temperature": 78.6,
+    "voltage": 242.4,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0075",
+    "timestamp": "2026-04-30T14:00:00",
+    "energy_usage": 0.83,
+    "solar_generation": 4.89,
+    "grid_draw": 0,
+    "temperature": 81.7,
+    "voltage": 239.0,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0076",
+    "timestamp": "2026-04-30T15:00:00",
+    "energy_usage": 0.93,
+    "solar_generation": 3.93,
+    "grid_draw": 0,
+    "temperature": 79.8,
+    "voltage": 241.9,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0077",
+    "timestamp": "2026-04-30T16:00:00",
+    "energy_usage": 1.46,
+    "solar_generation": 2.5,
+    "grid_draw": 0,
+    "temperature": 79.0,
+    "voltage": 239.2,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0078",
+    "timestamp": "2026-04-30T17:00:00",
+    "energy_usage": 1.82,
+    "solar_generation": 1.22,
+    "grid_draw": 0.94,
+    "temperature": 79.2,
+    "voltage": 240.6,
+    "cost": 9.89
+  },
+  {
+    "id": "an-0079",
+    "timestamp": "2026-04-30T18:00:00",
+    "energy_usage": 2.36,
+    "solar_generation": 0.0,
+    "grid_draw": 2.34,
+    "temperature": 75.2,
+    "voltage": 236.2,
+    "cost": 24.53
+  },
+  {
+    "id": "an-0080",
+    "timestamp": "2026-04-30T19:00:00",
+    "energy_usage": 2.36,
+    "solar_generation": 0,
+    "grid_draw": 2.4,
+    "temperature": 72.7,
+    "voltage": 239.0,
+    "cost": 25.16
+  },
+  {
+    "id": "an-0081",
+    "timestamp": "2026-04-30T20:00:00",
+    "energy_usage": 2.23,
+    "solar_generation": 0,
+    "grid_draw": 2.25,
+    "temperature": 70.6,
+    "voltage": 241.0,
+    "cost": 23.58
+  },
+  {
+    "id": "an-0082",
+    "timestamp": "2026-04-30T21:00:00",
+    "energy_usage": 1.76,
+    "solar_generation": 0,
+    "grid_draw": 1.79,
+    "temperature": 66.4,
+    "voltage": 238.4,
+    "cost": 18.76
+  },
+  {
+    "id": "an-0083",
+    "timestamp": "2026-04-30T22:00:00",
+    "energy_usage": 1.45,
+    "solar_generation": 0,
+    "grid_draw": 1.51,
+    "temperature": 61.9,
+    "voltage": 237.6,
+    "cost": 10.91
+  },
+  {
+    "id": "an-0084",
+    "timestamp": "2026-04-30T23:00:00",
+    "energy_usage": 0.89,
+    "solar_generation": 0,
+    "grid_draw": 0.9,
+    "temperature": 61.9,
+    "voltage": 237.0,
+    "cost": 6.53
+  },
+  {
+    "id": "an-0085",
+    "timestamp": "2026-05-01T00:00:00",
+    "energy_usage": 0.59,
+    "solar_generation": 0,
+    "grid_draw": 0.55,
+    "temperature": 59.4,
+    "voltage": 239.6,
+    "cost": 3.96
+  },
+  {
+    "id": "an-0086",
+    "timestamp": "2026-05-01T01:00:00",
+    "energy_usage": 0.6,
+    "solar_generation": 0,
+    "grid_draw": 0.52,
+    "temperature": 58.4,
+    "voltage": 241.3,
+    "cost": 3.76
+  },
+  {
+    "id": "an-0087",
+    "timestamp": "2026-05-01T02:00:00",
+    "energy_usage": 0.66,
+    "solar_generation": 0,
+    "grid_draw": 0.62,
+    "temperature": 58.8,
+    "voltage": 239.8,
+    "cost": 4.5
+  },
+  {
+    "id": "an-0088",
+    "timestamp": "2026-05-01T03:00:00",
+    "energy_usage": 0.82,
+    "solar_generation": 0,
+    "grid_draw": 0.91,
+    "temperature": 57.2,
+    "voltage": 241.4,
+    "cost": 6.58
+  },
+  {
+    "id": "an-0089",
+    "timestamp": "2026-05-01T04:00:00",
+    "energy_usage": 1.19,
+    "solar_generation": 0,
+    "grid_draw": 1.22,
+    "temperature": 60.4,
+    "voltage": 241.8,
+    "cost": 8.88
+  },
+  {
+    "id": "an-0090",
+    "timestamp": "2026-05-01T05:00:00",
+    "energy_usage": 1.42,
+    "solar_generation": 0,
+    "grid_draw": 1.44,
+    "temperature": 61.8,
+    "voltage": 239.7,
+    "cost": 10.43
+  },
+  {
+    "id": "an-0091",
+    "timestamp": "2026-05-01T06:00:00",
+    "energy_usage": 1.68,
+    "solar_generation": 0,
+    "grid_draw": 1.69,
+    "temperature": 62.0,
+    "voltage": 237.9,
+    "cost": 12.26
+  },
+  {
+    "id": "an-0092",
+    "timestamp": "2026-05-01T07:00:00",
+    "energy_usage": 1.69,
+    "solar_generation": 1.48,
+    "grid_draw": 0.64,
+    "temperature": 66.4,
+    "voltage": 238.3,
+    "cost": 4.68
+  },
+  {
+    "id": "an-0093",
+    "timestamp": "2026-05-01T08:00:00",
+    "energy_usage": 1.48,
+    "solar_generation": 2.49,
+    "grid_draw": 0,
+    "temperature": 68.3,
+    "voltage": 240.0,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0094",
+    "timestamp": "2026-05-01T09:00:00",
+    "energy_usage": 1.29,
+    "solar_generation": 3.46,
+    "grid_draw": 0,
+    "temperature": 72.9,
+    "voltage": 237.2,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0095",
+    "timestamp": "2026-05-01T10:00:00",
+    "energy_usage": 1.11,
+    "solar_generation": 4.65,
+    "grid_draw": 0,
+    "temperature": 73.8,
+    "voltage": 239.3,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0096",
+    "timestamp": "2026-05-01T11:00:00",
+    "energy_usage": 1.0,
+    "solar_generation": 5.25,
+    "grid_draw": 0,
+    "temperature": 78.9,
+    "voltage": 241.4,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0097",
+    "timestamp": "2026-05-01T12:00:00",
+    "energy_usage": 0.73,
+    "solar_generation": 4.53,
+    "grid_draw": 0,
+    "temperature": 80.4,
+    "voltage": 241.9,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0098",
+    "timestamp": "2026-05-01T13:00:00",
+    "energy_usage": 0.8,
+    "solar_generation": 5.0,
+    "grid_draw": 0,
+    "temperature": 80.8,
+    "voltage": 240.4,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0099",
+    "timestamp": "2026-05-01T14:00:00",
+    "energy_usage": 0.7,
+    "solar_generation": 4.22,
+    "grid_draw": 0,
+    "temperature": 79.1,
+    "voltage": 238.8,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0100",
+    "timestamp": "2026-05-01T15:00:00",
+    "energy_usage": 1.01,
+    "solar_generation": 3.65,
+    "grid_draw": 0,
+    "temperature": 80.5,
+    "voltage": 237.6,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0101",
+    "timestamp": "2026-05-01T16:00:00",
+    "energy_usage": 1.34,
+    "solar_generation": 2.28,
+    "grid_draw": 0,
+    "temperature": 79.6,
+    "voltage": 237.0,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0102",
+    "timestamp": "2026-05-01T17:00:00",
+    "energy_usage": 1.78,
+    "solar_generation": 1.23,
+    "grid_draw": 0.91,
+    "temperature": 75.7,
+    "voltage": 238.8,
+    "cost": 9.52
+  },
+  {
+    "id": "an-0103",
+    "timestamp": "2026-05-01T18:00:00",
+    "energy_usage": 2.05,
+    "solar_generation": 0.0,
+    "grid_draw": 2.12,
+    "temperature": 74.5,
+    "voltage": 240.8,
+    "cost": 22.3
+  },
+  {
+    "id": "an-0104",
+    "timestamp": "2026-05-01T19:00:00",
+    "energy_usage": 2.34,
+    "solar_generation": 0,
+    "grid_draw": 2.27,
+    "temperature": 70.2,
+    "voltage": 239.5,
+    "cost": 23.86
+  },
+  {
+    "id": "an-0105",
+    "timestamp": "2026-05-01T20:00:00",
+    "energy_usage": 2.22,
+    "solar_generation": 0,
+    "grid_draw": 2.27,
+    "temperature": 70.1,
+    "voltage": 240.1,
+    "cost": 23.84
+  },
+  {
+    "id": "an-0106",
+    "timestamp": "2026-05-01T21:00:00",
+    "energy_usage": 1.79,
+    "solar_generation": 0,
+    "grid_draw": 1.75,
+    "temperature": 64.0,
+    "voltage": 237.3,
+    "cost": 18.38
+  },
+  {
+    "id": "an-0107",
+    "timestamp": "2026-05-01T22:00:00",
+    "energy_usage": 1.22,
+    "solar_generation": 0,
+    "grid_draw": 1.25,
+    "temperature": 61.9,
+    "voltage": 240.7,
+    "cost": 9.05
+  },
+  {
+    "id": "an-0108",
+    "timestamp": "2026-05-01T23:00:00",
+    "energy_usage": 1.0,
+    "solar_generation": 0,
+    "grid_draw": 1.04,
+    "temperature": 61.5,
+    "voltage": 237.2,
+    "cost": 7.56
+  },
+  {
+    "id": "an-0109",
+    "timestamp": "2026-05-02T00:00:00",
+    "energy_usage": 0.65,
+    "solar_generation": 0,
+    "grid_draw": 0.59,
+    "temperature": 56.7,
+    "voltage": 238.5,
+    "cost": 4.26
+  },
+  {
+    "id": "an-0110",
+    "timestamp": "2026-05-02T01:00:00",
+    "energy_usage": 0.66,
+    "solar_generation": 0,
+    "grid_draw": 0.66,
+    "temperature": 58.3,
+    "voltage": 237.1,
+    "cost": 4.81
+  },
+  {
+    "id": "an-0111",
+    "timestamp": "2026-05-02T02:00:00",
+    "energy_usage": 0.76,
+    "solar_generation": 0,
+    "grid_draw": 0.7,
+    "temperature": 58.1,
+    "voltage": 241.7,
+    "cost": 5.1
+  },
+  {
+    "id": "an-0112",
+    "timestamp": "2026-05-02T03:00:00",
+    "energy_usage": 0.9,
+    "solar_generation": 0,
+    "grid_draw": 1.02,
+    "temperature": 58.5,
+    "voltage": 238.6,
+    "cost": 7.39
+  },
+  {
+    "id": "an-0113",
+    "timestamp": "2026-05-02T04:00:00",
+    "energy_usage": 1.08,
+    "solar_generation": 0,
+    "grid_draw": 1.1,
+    "temperature": 58.0,
+    "voltage": 241.6,
+    "cost": 8.01
+  },
+  {
+    "id": "an-0114",
+    "timestamp": "2026-05-02T05:00:00",
+    "energy_usage": 1.41,
+    "solar_generation": 0,
+    "grid_draw": 1.52,
+    "temperature": 61.1,
+    "voltage": 241.4,
+    "cost": 11.03
+  },
+  {
+    "id": "an-0115",
+    "timestamp": "2026-05-02T06:00:00",
+    "energy_usage": 1.57,
+    "solar_generation": 0,
+    "grid_draw": 1.64,
+    "temperature": 64.9,
+    "voltage": 238.0,
+    "cost": 11.89
+  },
+  {
+    "id": "an-0116",
+    "timestamp": "2026-05-02T07:00:00",
+    "energy_usage": 1.67,
+    "solar_generation": 1.39,
+    "grid_draw": 0.69,
+    "temperature": 65.6,
+    "voltage": 241.0,
+    "cost": 4.97
+  },
+  {
+    "id": "an-0117",
+    "timestamp": "2026-05-02T08:00:00",
+    "energy_usage": 1.48,
+    "solar_generation": 2.93,
+    "grid_draw": 0,
+    "temperature": 67.3,
+    "voltage": 242.1,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0118",
+    "timestamp": "2026-05-02T09:00:00",
+    "energy_usage": 1.28,
+    "solar_generation": 3.71,
+    "grid_draw": 0,
+    "temperature": 71.6,
+    "voltage": 237.0,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0119",
+    "timestamp": "2026-05-02T10:00:00",
+    "energy_usage": 1.18,
+    "solar_generation": 4.16,
+    "grid_draw": 0,
+    "temperature": 76.2,
+    "voltage": 238.8,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0120",
+    "timestamp": "2026-05-02T11:00:00",
+    "energy_usage": 0.97,
+    "solar_generation": 5.43,
+    "grid_draw": 0,
+    "temperature": 75.5,
+    "voltage": 242.5,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0121",
+    "timestamp": "2026-05-02T12:00:00",
+    "energy_usage": 0.65,
+    "solar_generation": 5.65,
+    "grid_draw": 0,
+    "temperature": 80.4,
+    "voltage": 240.9,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0122",
+    "timestamp": "2026-05-02T13:00:00",
+    "energy_usage": 0.72,
+    "solar_generation": 5.11,
+    "grid_draw": 0,
+    "temperature": 79.0,
+    "voltage": 238.1,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0123",
+    "timestamp": "2026-05-02T14:00:00",
+    "energy_usage": 0.8,
+    "solar_generation": 4.33,
+    "grid_draw": 0,
+    "temperature": 80.9,
+    "voltage": 240.0,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0124",
+    "timestamp": "2026-05-02T15:00:00",
+    "energy_usage": 0.94,
+    "solar_generation": 4.02,
+    "grid_draw": 0,
+    "temperature": 81.4,
+    "voltage": 238.4,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0125",
+    "timestamp": "2026-05-02T16:00:00",
+    "energy_usage": 1.25,
+    "solar_generation": 2.36,
+    "grid_draw": 0,
+    "temperature": 77.9,
+    "voltage": 240.0,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0126",
+    "timestamp": "2026-05-02T17:00:00",
+    "energy_usage": 1.8,
+    "solar_generation": 1.25,
+    "grid_draw": 0.87,
+    "temperature": 77.4,
+    "voltage": 240.9,
+    "cost": 9.13
+  },
+  {
+    "id": "an-0127",
+    "timestamp": "2026-05-02T18:00:00",
+    "energy_usage": 2.23,
+    "solar_generation": 0.0,
+    "grid_draw": 2.21,
+    "temperature": 73.4,
+    "voltage": 237.4,
+    "cost": 23.16
+  },
+  {
+    "id": "an-0128",
+    "timestamp": "2026-05-02T19:00:00",
+    "energy_usage": 2.22,
+    "solar_generation": 0,
+    "grid_draw": 2.14,
+    "temperature": 72.2,
+    "voltage": 237.9,
+    "cost": 22.45
+  },
+  {
+    "id": "an-0129",
+    "timestamp": "2026-05-02T20:00:00",
+    "energy_usage": 2.24,
+    "solar_generation": 0,
+    "grid_draw": 2.3,
+    "temperature": 67.5,
+    "voltage": 241.4,
+    "cost": 24.12
+  },
+  {
+    "id": "an-0130",
+    "timestamp": "2026-05-02T21:00:00",
+    "energy_usage": 1.76,
+    "solar_generation": 0,
+    "grid_draw": 1.79,
+    "temperature": 65.8,
+    "voltage": 239.0,
+    "cost": 18.8
+  },
+  {
+    "id": "an-0131",
+    "timestamp": "2026-05-02T22:00:00",
+    "energy_usage": 1.25,
+    "solar_generation": 0,
+    "grid_draw": 1.36,
+    "temperature": 62.9,
+    "voltage": 241.4,
+    "cost": 9.84
+  },
+  {
+    "id": "an-0132",
+    "timestamp": "2026-05-02T23:00:00",
+    "energy_usage": 0.94,
+    "solar_generation": 0,
+    "grid_draw": 0.99,
+    "temperature": 58.7,
+    "voltage": 237.4,
+    "cost": 7.14
+  },
+  {
+    "id": "an-0133",
+    "timestamp": "2026-05-03T00:00:00",
+    "energy_usage": 0.6,
+    "solar_generation": 0,
+    "grid_draw": 0.72,
+    "temperature": 57.1,
+    "voltage": 241.2,
+    "cost": 5.24
+  },
+  {
+    "id": "an-0134",
+    "timestamp": "2026-05-03T01:00:00",
+    "energy_usage": 0.67,
+    "solar_generation": 0,
+    "grid_draw": 0.63,
+    "temperature": 57.5,
+    "voltage": 239.3,
+    "cost": 4.57
+  },
+  {
+    "id": "an-0135",
+    "timestamp": "2026-05-03T02:00:00",
+    "energy_usage": 0.73,
+    "solar_generation": 0,
+    "grid_draw": 0.85,
+    "temperature": 56.2,
+    "voltage": 240.3,
+    "cost": 6.14
+  },
+  {
+    "id": "an-0136",
+    "timestamp": "2026-05-03T03:00:00",
+    "energy_usage": 0.93,
+    "solar_generation": 0,
+    "grid_draw": 1.04,
+    "temperature": 56.2,
+    "voltage": 237.8,
+    "cost": 7.57
+  },
+  {
+    "id": "an-0137",
+    "timestamp": "2026-05-03T04:00:00",
+    "energy_usage": 1.18,
+    "solar_generation": 0,
+    "grid_draw": 1.13,
+    "temperature": 56.9,
+    "voltage": 236.5,
+    "cost": 8.2
+  },
+  {
+    "id": "an-0138",
+    "timestamp": "2026-05-03T05:00:00",
+    "energy_usage": 1.38,
+    "solar_generation": 0,
+    "grid_draw": 1.36,
+    "temperature": 59.4,
+    "voltage": 240.7,
+    "cost": 9.84
+  },
+  {
+    "id": "an-0139",
+    "timestamp": "2026-05-03T06:00:00",
+    "energy_usage": 1.64,
+    "solar_generation": 0,
+    "grid_draw": 1.7,
+    "temperature": 64.7,
+    "voltage": 241.1,
+    "cost": 12.31
+  },
+  {
+    "id": "an-0140",
+    "timestamp": "2026-05-03T07:00:00",
+    "energy_usage": 1.7,
+    "solar_generation": 1.44,
+    "grid_draw": 0.77,
+    "temperature": 65.6,
+    "voltage": 239.9,
+    "cost": 5.61
+  },
+  {
+    "id": "an-0141",
+    "timestamp": "2026-05-03T08:00:00",
+    "energy_usage": 1.64,
+    "solar_generation": 2.97,
+    "grid_draw": 0,
+    "temperature": 67.3,
+    "voltage": 237.8,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0142",
+    "timestamp": "2026-05-03T09:00:00",
+    "energy_usage": 1.36,
+    "solar_generation": 4.03,
+    "grid_draw": 0,
+    "temperature": 71.3,
+    "voltage": 237.5,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0143",
+    "timestamp": "2026-05-03T10:00:00",
+    "energy_usage": 1.21,
+    "solar_generation": 4.87,
+    "grid_draw": 0,
+    "temperature": 75.0,
+    "voltage": 239.8,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0144",
+    "timestamp": "2026-05-03T11:00:00",
+    "energy_usage": 0.84,
+    "solar_generation": 4.43,
+    "grid_draw": 0,
+    "temperature": 76.8,
+    "voltage": 238.3,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0145",
+    "timestamp": "2026-05-03T12:00:00",
+    "energy_usage": 0.69,
+    "solar_generation": 6.03,
+    "grid_draw": 0,
+    "temperature": 79.7,
+    "voltage": 242.5,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0146",
+    "timestamp": "2026-05-03T13:00:00",
+    "energy_usage": 0.85,
+    "solar_generation": 5.39,
+    "grid_draw": 0,
+    "temperature": 78.8,
+    "voltage": 241.3,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0147",
+    "timestamp": "2026-05-03T14:00:00",
+    "energy_usage": 0.8,
+    "solar_generation": 4.8,
+    "grid_draw": 0,
+    "temperature": 79.7,
+    "voltage": 240.3,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0148",
+    "timestamp": "2026-05-03T15:00:00",
+    "energy_usage": 1.05,
+    "solar_generation": 3.74,
+    "grid_draw": 0,
+    "temperature": 80.0,
+    "voltage": 238.8,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0149",
+    "timestamp": "2026-05-03T16:00:00",
+    "energy_usage": 1.44,
+    "solar_generation": 2.93,
+    "grid_draw": 0,
+    "temperature": 80.2,
+    "voltage": 238.5,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0150",
+    "timestamp": "2026-05-03T17:00:00",
+    "energy_usage": 1.97,
+    "solar_generation": 1.5,
+    "grid_draw": 0.92,
+    "temperature": 77.3,
+    "voltage": 238.5,
+    "cost": 9.68
+  },
+  {
+    "id": "an-0151",
+    "timestamp": "2026-05-03T18:00:00",
+    "energy_usage": 2.23,
+    "solar_generation": 0.0,
+    "grid_draw": 2.23,
+    "temperature": 75.1,
+    "voltage": 242.2,
+    "cost": 23.44
+  },
+  {
+    "id": "an-0152",
+    "timestamp": "2026-05-03T19:00:00",
+    "energy_usage": 2.48,
+    "solar_generation": 0,
+    "grid_draw": 2.48,
+    "temperature": 70.9,
+    "voltage": 238.4,
+    "cost": 26.06
+  },
+  {
+    "id": "an-0153",
+    "timestamp": "2026-05-03T20:00:00",
+    "energy_usage": 2.35,
+    "solar_generation": 0,
+    "grid_draw": 2.42,
+    "temperature": 67.8,
+    "voltage": 239.5,
+    "cost": 25.43
+  },
+  {
+    "id": "an-0154",
+    "timestamp": "2026-05-03T21:00:00",
+    "energy_usage": 1.99,
+    "solar_generation": 0,
+    "grid_draw": 2.05,
+    "temperature": 64.4,
+    "voltage": 242.1,
+    "cost": 21.55
+  },
+  {
+    "id": "an-0155",
+    "timestamp": "2026-05-03T22:00:00",
+    "energy_usage": 1.45,
+    "solar_generation": 0,
+    "grid_draw": 1.4,
+    "temperature": 63.2,
+    "voltage": 239.8,
+    "cost": 10.15
+  },
+  {
+    "id": "an-0156",
+    "timestamp": "2026-05-03T23:00:00",
+    "energy_usage": 0.94,
+    "solar_generation": 0,
+    "grid_draw": 1.04,
+    "temperature": 60.4,
+    "voltage": 237.2,
+    "cost": 7.54
+  },
+  {
+    "id": "an-0157",
+    "timestamp": "2026-05-04T00:00:00",
+    "energy_usage": 0.72,
+    "solar_generation": 0,
+    "grid_draw": 0.78,
+    "temperature": 58.6,
+    "voltage": 238.2,
+    "cost": 5.65
+  },
+  {
+    "id": "an-0158",
+    "timestamp": "2026-05-04T01:00:00",
+    "energy_usage": 0.77,
+    "solar_generation": 0,
+    "grid_draw": 0.74,
+    "temperature": 57.6,
+    "voltage": 238.9,
+    "cost": 5.38
+  },
+  {
+    "id": "an-0159",
+    "timestamp": "2026-05-04T02:00:00",
+    "energy_usage": 0.9,
+    "solar_generation": 0,
+    "grid_draw": 1.0,
+    "temperature": 58.5,
+    "voltage": 238.2,
+    "cost": 7.26
+  },
+  {
+    "id": "an-0160",
+    "timestamp": "2026-05-04T03:00:00",
+    "energy_usage": 1.05,
+    "solar_generation": 0,
+    "grid_draw": 1.16,
+    "temperature": 57.4,
+    "voltage": 241.4,
+    "cost": 8.42
+  },
+  {
+    "id": "an-0161",
+    "timestamp": "2026-05-04T04:00:00",
+    "energy_usage": 1.18,
+    "solar_generation": 0,
+    "grid_draw": 1.21,
+    "temperature": 60.6,
+    "voltage": 239.4,
+    "cost": 8.8
+  },
+  {
+    "id": "an-0162",
+    "timestamp": "2026-05-04T05:00:00",
+    "energy_usage": 1.42,
+    "solar_generation": 0,
+    "grid_draw": 1.4,
+    "temperature": 60.7,
+    "voltage": 239.7,
+    "cost": 10.18
+  },
+  {
+    "id": "an-0163",
+    "timestamp": "2026-05-04T06:00:00",
+    "energy_usage": 1.71,
+    "solar_generation": 0,
+    "grid_draw": 1.67,
+    "temperature": 63.8,
+    "voltage": 239.8,
+    "cost": 12.09
+  },
+  {
+    "id": "an-0164",
+    "timestamp": "2026-05-04T07:00:00",
+    "energy_usage": 1.74,
+    "solar_generation": 1.49,
+    "grid_draw": 0.6,
+    "temperature": 66.9,
+    "voltage": 240.9,
+    "cost": 4.36
+  },
+  {
+    "id": "an-0165",
+    "timestamp": "2026-05-04T08:00:00",
+    "energy_usage": 1.81,
+    "solar_generation": 2.56,
+    "grid_draw": 0.01,
+    "temperature": 70.3,
+    "voltage": 242.7,
+    "cost": 0.11
+  },
+  {
+    "id": "an-0166",
+    "timestamp": "2026-05-04T09:00:00",
+    "energy_usage": 1.52,
+    "solar_generation": 3.24,
+    "grid_draw": 0,
+    "temperature": 72.5,
+    "voltage": 242.0,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0167",
+    "timestamp": "2026-05-04T10:00:00",
+    "energy_usage": 1.35,
+    "solar_generation": 4.52,
+    "grid_draw": 0,
+    "temperature": 74.8,
+    "voltage": 241.1,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0168",
+    "timestamp": "2026-05-04T11:00:00",
+    "energy_usage": 0.99,
+    "solar_generation": 5.36,
+    "grid_draw": 0,
+    "temperature": 77.4,
+    "voltage": 242.6,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0169",
+    "timestamp": "2026-05-04T12:00:00",
+    "energy_usage": 0.81,
+    "solar_generation": 5.61,
+    "grid_draw": 0,
+    "temperature": 80.8,
+    "voltage": 241.9,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0170",
+    "timestamp": "2026-05-04T13:00:00",
+    "energy_usage": 0.88,
+    "solar_generation": 4.94,
+    "grid_draw": 0,
+    "temperature": 81.5,
+    "voltage": 241.4,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0171",
+    "timestamp": "2026-05-04T14:00:00",
+    "energy_usage": 0.96,
+    "solar_generation": 3.97,
+    "grid_draw": 0,
+    "temperature": 81.5,
+    "voltage": 242.3,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0172",
+    "timestamp": "2026-05-04T15:00:00",
+    "energy_usage": 1.22,
+    "solar_generation": 4.03,
+    "grid_draw": 0,
+    "temperature": 79.0,
+    "voltage": 240.6,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0173",
+    "timestamp": "2026-05-04T16:00:00",
+    "energy_usage": 1.59,
+    "solar_generation": 2.61,
+    "grid_draw": 0,
+    "temperature": 81.0,
+    "voltage": 237.1,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0174",
+    "timestamp": "2026-05-04T17:00:00",
+    "energy_usage": 2.07,
+    "solar_generation": 1.29,
+    "grid_draw": 1.14,
+    "temperature": 76.1,
+    "voltage": 239.7,
+    "cost": 11.96
+  },
+  {
+    "id": "an-0175",
+    "timestamp": "2026-05-04T18:00:00",
+    "energy_usage": 2.45,
+    "solar_generation": 0.0,
+    "grid_draw": 2.4,
+    "temperature": 73.3,
+    "voltage": 241.4,
+    "cost": 25.2
+  },
+  {
+    "id": "an-0176",
+    "timestamp": "2026-05-04T19:00:00",
+    "energy_usage": 2.64,
+    "solar_generation": 0,
+    "grid_draw": 2.74,
+    "temperature": 70.7,
+    "voltage": 238.9,
+    "cost": 28.75
+  },
+  {
+    "id": "an-0177",
+    "timestamp": "2026-05-04T20:00:00",
+    "energy_usage": 2.37,
+    "solar_generation": 0,
+    "grid_draw": 2.3,
+    "temperature": 70.2,
+    "voltage": 241.6,
+    "cost": 24.11
+  },
+  {
+    "id": "an-0178",
+    "timestamp": "2026-05-04T21:00:00",
+    "energy_usage": 2.05,
+    "solar_generation": 0,
+    "grid_draw": 2.06,
+    "temperature": 65.3,
+    "voltage": 239.8,
+    "cost": 21.66
+  },
+  {
+    "id": "an-0179",
+    "timestamp": "2026-05-04T22:00:00",
+    "energy_usage": 1.54,
+    "solar_generation": 0,
+    "grid_draw": 1.51,
+    "temperature": 64.4,
+    "voltage": 237.6,
+    "cost": 10.98
+  },
+  {
+    "id": "an-0180",
+    "timestamp": "2026-05-04T23:00:00",
+    "energy_usage": 1.07,
+    "solar_generation": 0,
+    "grid_draw": 1.04,
+    "temperature": 60.8,
+    "voltage": 240.0,
+    "cost": 7.5
+  },
+  {
+    "id": "an-0181",
+    "timestamp": "2026-05-05T00:00:00",
+    "energy_usage": 0.8,
+    "solar_generation": 0,
+    "grid_draw": 0.91,
+    "temperature": 59.2,
+    "voltage": 238.2,
+    "cost": 6.63
+  },
+  {
+    "id": "an-0182",
+    "timestamp": "2026-05-05T01:00:00",
+    "energy_usage": 0.75,
+    "solar_generation": 0,
+    "grid_draw": 0.82,
+    "temperature": 55.6,
+    "voltage": 240.2,
+    "cost": 5.91
+  },
+  {
+    "id": "an-0183",
+    "timestamp": "2026-05-05T02:00:00",
+    "energy_usage": 0.84,
+    "solar_generation": 0,
+    "grid_draw": 0.82,
+    "temperature": 58.2,
+    "voltage": 240.2,
+    "cost": 5.94
+  },
+  {
+    "id": "an-0184",
+    "timestamp": "2026-05-05T03:00:00",
+    "energy_usage": 0.99,
+    "solar_generation": 0,
+    "grid_draw": 1.04,
+    "temperature": 58.1,
+    "voltage": 240.9,
+    "cost": 7.52
+  },
+  {
+    "id": "an-0185",
+    "timestamp": "2026-05-05T04:00:00",
+    "energy_usage": 1.33,
+    "solar_generation": 0,
+    "grid_draw": 1.38,
+    "temperature": 60.2,
+    "voltage": 240.3,
+    "cost": 9.97
+  },
+  {
+    "id": "an-0186",
+    "timestamp": "2026-05-05T05:00:00",
+    "energy_usage": 1.52,
+    "solar_generation": 0,
+    "grid_draw": 1.56,
+    "temperature": 61.4,
+    "voltage": 237.0,
+    "cost": 11.28
+  },
+  {
+    "id": "an-0187",
+    "timestamp": "2026-05-05T06:00:00",
+    "energy_usage": 1.74,
+    "solar_generation": 0,
+    "grid_draw": 1.69,
+    "temperature": 61.5,
+    "voltage": 239.6,
+    "cost": 12.29
+  },
+  {
+    "id": "an-0188",
+    "timestamp": "2026-05-05T07:00:00",
+    "energy_usage": 2.0,
+    "solar_generation": 1.39,
+    "grid_draw": 1.11,
+    "temperature": 67.2,
+    "voltage": 238.1,
+    "cost": 8.02
+  },
+  {
+    "id": "an-0189",
+    "timestamp": "2026-05-05T08:00:00",
+    "energy_usage": 1.88,
+    "solar_generation": 2.64,
+    "grid_draw": 0.06,
+    "temperature": 70.0,
+    "voltage": 238.8,
+    "cost": 0.43
+  },
+  {
+    "id": "an-0190",
+    "timestamp": "2026-05-05T09:00:00",
+    "energy_usage": 1.47,
+    "solar_generation": 4.27,
+    "grid_draw": 0,
+    "temperature": 74.0,
+    "voltage": 242.0,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0191",
+    "timestamp": "2026-05-05T10:00:00",
+    "energy_usage": 1.35,
+    "solar_generation": 5.25,
+    "grid_draw": 0,
+    "temperature": 76.2,
+    "voltage": 239.0,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0192",
+    "timestamp": "2026-05-05T11:00:00",
+    "energy_usage": 1.11,
+    "solar_generation": 4.39,
+    "grid_draw": 0,
+    "temperature": 77.3,
+    "voltage": 240.8,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0193",
+    "timestamp": "2026-05-05T12:00:00",
+    "energy_usage": 0.91,
+    "solar_generation": 5.44,
+    "grid_draw": 0,
+    "temperature": 81.2,
+    "voltage": 237.5,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0194",
+    "timestamp": "2026-05-05T13:00:00",
+    "energy_usage": 0.74,
+    "solar_generation": 4.41,
+    "grid_draw": 0,
+    "temperature": 80.8,
+    "voltage": 242.3,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0195",
+    "timestamp": "2026-05-05T14:00:00",
+    "energy_usage": 0.81,
+    "solar_generation": 4.0,
+    "grid_draw": 0,
+    "temperature": 82.6,
+    "voltage": 238.6,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0196",
+    "timestamp": "2026-05-05T15:00:00",
+    "energy_usage": 1.09,
+    "solar_generation": 3.35,
+    "grid_draw": 0,
+    "temperature": 79.8,
+    "voltage": 239.8,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0197",
+    "timestamp": "2026-05-05T16:00:00",
+    "energy_usage": 1.41,
+    "solar_generation": 2.96,
+    "grid_draw": 0,
+    "temperature": 79.2,
+    "voltage": 240.8,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0198",
+    "timestamp": "2026-05-05T17:00:00",
+    "energy_usage": 2.08,
+    "solar_generation": 1.55,
+    "grid_draw": 0.97,
+    "temperature": 78.5,
+    "voltage": 237.5,
+    "cost": 10.13
+  },
+  {
+    "id": "an-0199",
+    "timestamp": "2026-05-05T18:00:00",
+    "energy_usage": 2.43,
+    "solar_generation": 0.0,
+    "grid_draw": 2.44,
+    "temperature": 74.6,
+    "voltage": 241.9,
+    "cost": 25.66
+  },
+  {
+    "id": "an-0200",
+    "timestamp": "2026-05-05T19:00:00",
+    "energy_usage": 2.5,
+    "solar_generation": 0,
+    "grid_draw": 2.51,
+    "temperature": 73.9,
+    "voltage": 241.3,
+    "cost": 26.31
+  },
+  {
+    "id": "an-0201",
+    "timestamp": "2026-05-05T20:00:00",
+    "energy_usage": 2.34,
+    "solar_generation": 0,
+    "grid_draw": 2.37,
+    "temperature": 70.9,
+    "voltage": 238.4,
+    "cost": 24.85
+  },
+  {
+    "id": "an-0202",
+    "timestamp": "2026-05-05T21:00:00",
+    "energy_usage": 1.98,
+    "solar_generation": 0,
+    "grid_draw": 1.92,
+    "temperature": 67.3,
+    "voltage": 239.0,
+    "cost": 20.21
+  },
+  {
+    "id": "an-0203",
+    "timestamp": "2026-05-05T22:00:00",
+    "energy_usage": 1.54,
+    "solar_generation": 0,
+    "grid_draw": 1.58,
+    "temperature": 61.1,
+    "voltage": 241.1,
+    "cost": 11.47
+  },
+  {
+    "id": "an-0204",
+    "timestamp": "2026-05-05T23:00:00",
+    "energy_usage": 1.02,
+    "solar_generation": 0,
+    "grid_draw": 1.06,
+    "temperature": 58.8,
+    "voltage": 241.1,
+    "cost": 7.66
+  },
+  {
+    "id": "an-0205",
+    "timestamp": "2026-05-06T00:00:00",
+    "energy_usage": 0.59,
+    "solar_generation": 0,
+    "grid_draw": 0.68,
+    "temperature": 57.9,
+    "voltage": 237.5,
+    "cost": 4.96
+  },
+  {
+    "id": "an-0206",
+    "timestamp": "2026-05-06T01:00:00",
+    "energy_usage": 0.82,
+    "solar_generation": 0,
+    "grid_draw": 0.91,
+    "temperature": 56.0,
+    "voltage": 237.4,
+    "cost": 6.62
+  },
+  {
+    "id": "an-0207",
+    "timestamp": "2026-05-06T02:00:00",
+    "energy_usage": 0.77,
+    "solar_generation": 0,
+    "grid_draw": 0.82,
+    "temperature": 55.1,
+    "voltage": 236.7,
+    "cost": 5.93
+  },
+  {
+    "id": "an-0208",
+    "timestamp": "2026-05-06T03:00:00",
+    "energy_usage": 1.09,
+    "solar_generation": 0,
+    "grid_draw": 1.07,
+    "temperature": 56.1,
+    "voltage": 236.8,
+    "cost": 7.76
+  },
+  {
+    "id": "an-0209",
+    "timestamp": "2026-05-06T04:00:00",
+    "energy_usage": 1.32,
+    "solar_generation": 0,
+    "grid_draw": 1.39,
+    "temperature": 58.5,
+    "voltage": 241.1,
+    "cost": 10.08
+  },
+  {
+    "id": "an-0210",
+    "timestamp": "2026-05-06T05:00:00",
+    "energy_usage": 1.53,
+    "solar_generation": 0,
+    "grid_draw": 1.55,
+    "temperature": 62.3,
+    "voltage": 236.7,
+    "cost": 11.27
+  },
+  {
+    "id": "an-0211",
+    "timestamp": "2026-05-06T06:00:00",
+    "energy_usage": 1.82,
+    "solar_generation": 0,
+    "grid_draw": 1.84,
+    "temperature": 62.8,
+    "voltage": 242.1,
+    "cost": 13.34
+  },
+  {
+    "id": "an-0212",
+    "timestamp": "2026-05-06T07:00:00",
+    "energy_usage": 1.71,
+    "solar_generation": 1.37,
+    "grid_draw": 0.73,
+    "temperature": 66.6,
+    "voltage": 239.6,
+    "cost": 5.29
+  },
+  {
+    "id": "an-0213",
+    "timestamp": "2026-05-06T08:00:00",
+    "energy_usage": 1.84,
+    "solar_generation": 2.32,
+    "grid_draw": 0.1,
+    "temperature": 69.4,
+    "voltage": 237.2,
+    "cost": 0.75
+  },
+  {
+    "id": "an-0214",
+    "timestamp": "2026-05-06T09:00:00",
+    "energy_usage": 1.46,
+    "solar_generation": 3.9,
+    "grid_draw": 0,
+    "temperature": 71.4,
+    "voltage": 242.8,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0215",
+    "timestamp": "2026-05-06T10:00:00",
+    "energy_usage": 1.25,
+    "solar_generation": 4.53,
+    "grid_draw": 0,
+    "temperature": 73.4,
+    "voltage": 241.0,
+    "cost": 0.0
+  },
+  {
+    "id": "an-0216",
+    "timestamp": "2026-05-06T11:00:00",
+    "energy_usage": 1.08,
+    "solar_generation": 5.35,
+    "grid_draw": 0,
+    "temperature": 78.4,
+    "voltage": 238.1,
+    "cost": 0.0
+  }
+]

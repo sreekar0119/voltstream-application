@@ -1,0 +1,132 @@
+[
+  {
+    "id": "dev-01",
+    "name": "HVAC Heat Pump",
+    "category": "Climate",
+    "status": "off",
+    "power_usage": 1320,
+    "health": "optimal",
+    "daily_active_hours": 8.5,
+    "last_seen": "2026-05-06T11:40:32.982905"
+  },
+  {
+    "id": "dev-02",
+    "name": "EV Wall Connector",
+    "category": "Mobility",
+    "status": "off",
+    "power_usage": 6100,
+    "health": "idle",
+    "daily_active_hours": 2.2,
+    "last_seen": "2026-05-06T11:10:14.747914"
+  },
+  {
+    "id": "dev-03",
+    "name": "Induction Range",
+    "category": "Kitchen",
+    "status": "off",
+    "power_usage": 1800,
+    "health": "optimal",
+    "daily_active_hours": 1.1,
+    "last_seen": "2026-05-06T10:58:14.747914"
+  },
+  {
+    "id": "dev-04",
+    "name": "Smart Refrigerator",
+    "category": "Kitchen",
+    "status": "on",
+    "power_usage": 180,
+    "health": "optimal",
+    "daily_active_hours": 22.8,
+    "last_seen": "2026-05-06T11:03:14.747914"
+  },
+  {
+    "id": "dev-05",
+    "name": "Heat Pump Water Heater",
+    "category": "Utility",
+    "status": "on",
+    "power_usage": 940,
+    "health": "optimal",
+    "daily_active_hours": 3.8,
+    "last_seen": "2026-05-06T10:32:14.747914"
+  },
+  {
+    "id": "dev-06",
+    "name": "Laundry Center",
+    "category": "Utility",
+    "status": "off",
+    "power_usage": 720,
+    "health": "optimal",
+    "daily_active_hours": 1.5,
+    "last_seen": "2026-05-06T10:55:14.747914"
+  },
+  {
+    "id": "dev-07",
+    "name": "Pool Circulation Pump",
+    "category": "Outdoor",
+    "status": "on",
+    "power_usage": 860,
+    "health": "attention",
+    "daily_active_hours": 5.0,
+    "last_seen": "2026-05-06T10:59:14.747914"
+  },
+  {
+    "id": "dev-08",
+    "name": "Home Office Circuit",
+    "category": "Workspace",
+    "status": "on",
+    "power_usage": 310,
+    "health": "optimal",
+    "daily_active_hours": 9.4,
+    "last_seen": "2026-05-06T10:58:14.747914"
+  },
+  {
+    "id": "dev-09",
+    "name": "Lighting Grid",
+    "category": "Lighting",
+    "status": "on",
+    "power_usage": 220,
+    "health": "optimal",
+    "daily_active_hours": 6.7,
+    "last_seen": "2026-05-06T10:38:14.747914"
+  },
+  {
+    "id": "dev-10",
+    "name": "Battery Inverter",
+    "category": "Energy",
+    "status": "on",
+    "power_usage": 420,
+    "health": "optimal",
+    "daily_active_hours": 24.0,
+    "last_seen": "2026-05-06T11:18:14.747914"
+  },
+  {
+    "id": "dev-11",
+    "name": "Dishwasher",
+    "category": "Kitchen",
+    "status": "off",
+    "power_usage": 540,
+    "health": "idle",
+    "daily_active_hours": 1.0,
+    "last_seen": "2026-05-06T11:04:14.747914"
+  },
+  {
+    "id": "dev-12",
+    "name": "Media Wall",
+    "category": "Entertainment",
+    "status": "on",
+    "power_usage": 260,
+    "health": "optimal",
+    "daily_active_hours": 4.2,
+    "last_seen": "2026-05-06T10:57:14.747914"
+  },
+  {
+    "id": "dev-13",
+    "name": "Garage Workshop",
+    "category": "Utility",
+    "status": "off",
+    "power_usage": 380,
+    "health": "offline",
+    "daily_active_hours": 0.4,
+    "last_seen": "2026-05-06T11:04:14.747914"
+  }
+]
