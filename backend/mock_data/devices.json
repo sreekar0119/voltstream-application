@@ -7,7 +7,7 @@
     "power_usage": 1320,
     "health": "optimal",
     "daily_active_hours": 8.5,
-    "last_seen": "2026-05-06T11:40:32.982905"
+    "last_seen": "2026-05-07T10:00:47.920472"
   },
   {
     "id": "dev-02",
@@ -17,7 +17,7 @@
     "power_usage": 6100,
     "health": "idle",
     "daily_active_hours": 2.2,
-    "last_seen": "2026-05-06T11:10:14.747914"
+    "last_seen": "2026-05-07T10:00:50.543542"
   },
   {
     "id": "dev-03",
@@ -27,7 +27,7 @@
     "power_usage": 1800,
     "health": "optimal",
     "daily_active_hours": 1.1,
-    "last_seen": "2026-05-06T10:58:14.747914"
+    "last_seen": "2026-05-07T10:00:49.120865"
   },
   {
     "id": "dev-04",
@@ -53,11 +53,11 @@
     "id": "dev-06",
     "name": "Laundry Center",
     "category": "Utility",
-    "status": "off",
+    "status": "on",
     "power_usage": 720,
     "health": "optimal",
     "daily_active_hours": 1.5,
-    "last_seen": "2026-05-06T10:55:14.747914"
+    "last_seen": "2026-05-07T10:00:39.856082"
   },
   {
     "id": "dev-07",
@@ -107,17 +107,17 @@
     "power_usage": 540,
     "health": "idle",
     "daily_active_hours": 1.0,
-    "last_seen": "2026-05-06T11:04:14.747914"
+    "last_seen": "2026-05-07T10:00:54.024421"
   },
   {
     "id": "dev-12",
     "name": "Media Wall",
     "category": "Entertainment",
-    "status": "on",
+    "status": "off",
     "power_usage": 260,
     "health": "optimal",
     "daily_active_hours": 4.2,
-    "last_seen": "2026-05-06T10:57:14.747914"
+    "last_seen": "2026-05-07T10:00:55.482928"
   },
   {
     "id": "dev-13",
@@ -127,6 +127,6 @@
     "power_usage": 380,
     "health": "offline",
     "daily_active_hours": 0.4,
-    "last_seen": "2026-05-06T11:04:14.747914"
+    "last_seen": "2026-05-07T10:00:52.944925"
   }
 ]

@@ -42,7 +42,7 @@ export function LiveDashboard() {
     <motion.div {...pageMotion} className="space-y-5">
       <motion.div variants={stagger} initial="initial" animate="animate" className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         {live.metrics.map((metric, index) => (
-          <MetricCard key={metric.label} {...metric} icon={icons[index]} />
+          <MetricCard key={metric.label} {...metric} icon={icons[index]} showChange />
         ))}
       </motion.div>
 

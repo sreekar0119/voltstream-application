@@ -9,3 +9,25 @@ __pycache__/
 *.log
 .env
 .env.local
+.env.production
+.env.*.local
+
+# Python
+venv/
+backend/venv/
+.pytest_cache/
+backend/.pytest_cache/
+*.egg-info/
+build/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Build artifacts
+frontend/dist/
+backend/__pycache__/

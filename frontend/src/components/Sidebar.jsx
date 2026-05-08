@@ -41,16 +41,6 @@ export function Sidebar() {
             </NavLink>
           ))}
         </nav>
-
-        <div className="mt-auto rounded-[8px] border border-emerald-300/20 bg-emerald-300/10 p-4">
-          <div className="flex items-center gap-2 text-sm font-medium text-emerald-100">
-            <span className="h-2 w-2 rounded-full bg-emerald-300 shadow-[0_0_16px_rgba(94,234,212,.8)]" />
-            Grid synchronized
-          </div>
-          <p className="mt-3 text-xs leading-5 text-slate-400">
-            Solar inverter, battery gateway, and home circuits are streaming live telemetry.
-          </p>
-        </div>
       </div>
     </aside>
   );

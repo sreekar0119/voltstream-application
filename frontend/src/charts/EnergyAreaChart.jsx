@@ -2,7 +2,6 @@ import {
   Area,
   AreaChart,
   CartesianGrid,
-  Line,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -70,24 +69,6 @@ export function EnergyAreaChart({ data, height = 320 }) {
             fillOpacity={1}
             animationDuration={1100}
             activeDot={{ r: 6, stroke: "#eff6ff", strokeWidth: 3 }}
-          />
-          <Line
-            type="monotone"
-            dataKey="solar_generation"
-            stroke="#99f6e4"
-            strokeWidth={3.8}
-            dot={false}
-            legendType="none"
-            isAnimationActive={false}
-          />
-          <Line
-            type="monotone"
-            dataKey="energy_usage"
-            stroke="#93c5fd"
-            strokeWidth={3.8}
-            dot={false}
-            legendType="none"
-            isAnimationActive={false}
           />
         </AreaChart>
       </ResponsiveContainer>

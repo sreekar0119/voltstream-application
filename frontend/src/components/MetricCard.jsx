@@ -1,9 +1,7 @@
-import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { number } from "../utils/format.js";
 
-export function MetricCard({ label, value, unit, change = 0, icon: Icon, tone = "cyan" }) {
-  const positive = Number(change) >= 0;
+export function MetricCard({ label, value, unit, change = 0, showChange = false, icon: Icon, tone = "cyan" }) {
   const tones = {
     cyan: "from-cyan-300/25 to-blue-400/10 text-cyan-100",
     blue: "from-blue-300/20 to-cyan-400/10 text-blue-100",
@@ -31,10 +29,11 @@ export function MetricCard({ label, value, unit, change = 0, icon: Icon, tone = 
           </div>
         ) : null}
       </div>
-      <div className={`mt-4 flex items-center gap-1 text-xs ${positive ? "text-emerald-200" : "text-rose-200"}`}>
-        {positive ? <ArrowUpRight className="h-3.5 w-3.5" /> : <ArrowDownRight className="h-3.5 w-3.5" />}
-        <span>{Math.abs(Number(change)).toFixed(1)} since last signal</span>
-      </div>
+      {showChange ? (
+        <div className={`mt-4 flex items-center gap-1 text-xs ${Number(change) >= 0 ? "text-emerald-200" : "text-rose-200"}`}>
+          <span>{Math.abs(Number(change)).toFixed(1)} since last signal</span>
+        </div>
+      ) : null}
     </motion.div>
   );
 }
