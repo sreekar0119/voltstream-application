@@ -1,6 +1,5 @@
 # VoltStream
-
-Premium full-stack smart energy monitoring platform for a solar-powered prosumer home.
+full-stack smart energy monitoring platform for a solar-powered prosumer home.
 
 ## Run the backend
 
