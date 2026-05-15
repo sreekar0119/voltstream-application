@@ -4,7 +4,10 @@ import math
 from datetime import datetime
 from statistics import mean
 
-from app.utils.data_loader import read_json
+from sqlalchemy import select
+from sqlalchemy.orm import Session
+
+from app.models import AnalyticsRecordModel, BillingRecordModel, DeviceModel
 
 
 def _average(records: list[dict], key: str, count: int) -> float:
@@ -16,10 +19,23 @@ def _clamp(value: float, low: float, high: float) -> float:
     return max(low, min(high, value))
 
 
-def get_live_dashboard() -> dict:
-    analytics = read_json("analytics.json")
-    devices = read_json("devices.json")
-    billing = read_json("billing.json")
+def _as_dict(record) -> dict:
+    return {column.name: getattr(record, column.name) for column in record.__table__.columns}
+
+
+def get_live_dashboard(db: Session) -> dict:
+    analytics = [
+        _as_dict(record)
+        for record in db.scalars(select(AnalyticsRecordModel).order_by(AnalyticsRecordModel.timestamp))
+    ]
+    devices = [
+        _as_dict(record)
+        for record in db.scalars(select(DeviceModel).order_by(DeviceModel.id))
+    ]
+    billing = [
+        _as_dict(record)
+        for record in db.scalars(select(BillingRecordModel).order_by(BillingRecordModel.month))
+    ]
 
     latest = analytics[-1]
     previous = analytics[-2]

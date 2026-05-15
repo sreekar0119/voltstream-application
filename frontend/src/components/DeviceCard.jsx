@@ -1,4 +1,4 @@
-import { Cpu, Fan, Home, Lightbulb, PlugZap } from "lucide-react";
+import { Cpu, Fan, Home, Lightbulb, PlugZap, Trash2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { StatusPill } from "./StatusPill.jsx";
 import { Toggle } from "./Toggle.jsx";
@@ -12,7 +12,7 @@ const icons = {
   Utility: Cpu
 };
 
-export function DeviceCard({ device, onToggle, busy }) {
+export function DeviceCard({ device, onToggle, onDelete, busy }) {
   const Icon = icons[device.category] ?? PlugZap;
   const active = device.status === "on";
 
@@ -32,7 +32,18 @@ export function DeviceCard({ device, onToggle, busy }) {
             <p className="text-sm text-slate-400">{device.category}</p>
           </div>
         </div>
-        <Toggle checked={active} disabled={busy} onChange={(next) => onToggle(device.id, next ? "on" : "off")} />
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            title="Delete device"
+            onClick={() => onDelete(device.id)}
+            disabled={busy}
+            className="grid h-8 w-8 place-items-center rounded-[8px] bg-white/5 text-slate-400 transition hover:bg-rose-400/10 hover:text-rose-100 disabled:opacity-60"
+          >
+            <Trash2 className="h-4 w-4" />
+          </button>
+          <Toggle checked={active} disabled={busy} onChange={(next) => onToggle(device.id, next ? "on" : "off")} />
+        </div>
       </div>
       <div className="mt-5 grid grid-cols-3 gap-3">
         <div>

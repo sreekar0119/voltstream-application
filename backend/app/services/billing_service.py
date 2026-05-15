@@ -1,13 +1,16 @@
 from app.schemas.billing import BillingRecord
-from app.utils.data_loader import read_json
+from app.models import BillingRecordModel
+from sqlalchemy import select
+from sqlalchemy.orm import Session
 
 
-def get_billing_records() -> list[BillingRecord]:
-    return [BillingRecord(**record) for record in read_json("billing.json")]
+def get_billing_records(db: Session) -> list[BillingRecord]:
+    records = db.scalars(select(BillingRecordModel).order_by(BillingRecordModel.month))
+    return [BillingRecord(**record.__dict__) for record in records]
 
 
-def get_billing_summary() -> dict:
-    records = get_billing_records()
+def get_billing_summary(db: Session) -> dict:
+    records = get_billing_records(db)
     latest = records[-1]
     previous = records[-2]
     annual_spend = round(sum(record.bill_amount for record in records), 2)

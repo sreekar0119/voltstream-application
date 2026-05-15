@@ -1,10 +1,23 @@
 import os
+from pathlib import Path
 
 from pydantic import BaseModel
+from dotenv import load_dotenv
 
+
+BASE_DIR = Path(__file__).resolve().parents[2]
+load_dotenv(BASE_DIR / ".env")
 
 def _csv(value: str) -> list[str]:
     return [item.strip().rstrip("/") for item in value.split(",") if item.strip()]
+
+
+def _path(value: str, default: Path) -> Path:
+    raw = value.strip()
+    if not raw:
+        return default
+    candidate = Path(raw)
+    return candidate if candidate.is_absolute() else BASE_DIR / candidate
 
 
 class Settings(BaseModel):
@@ -16,6 +29,14 @@ class Settings(BaseModel):
             "http://localhost:5173,http://127.0.0.1:5173",
         )
     )
+    gemini_api_key: str = os.getenv("GEMINI_API_KEY", "")
+    gemini_model: str = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+    gemini_embedding_model: str = os.getenv("GEMINI_EMBEDDING_MODEL", "gemini-embedding-001")
+    database_url: Path = _path(os.getenv("DATABASE_URL", ""), BASE_DIR / "voltstream.db")
+    documents_dir: Path = _path(os.getenv("DOCUMENTS_DIR", ""), BASE_DIR / "documents")
+    chroma_db_dir: Path = _path(os.getenv("CHROMA_DB_DIR", ""), BASE_DIR / "chroma_db")
+    rag_collection_name: str = os.getenv("RAG_COLLECTION_NAME", "voltstream_documents")
+    rag_top_k: int = int(os.getenv("RAG_TOP_K", "4"))
 
 
 settings = Settings()

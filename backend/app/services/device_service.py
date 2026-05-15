@@ -1,21 +1,55 @@
 from datetime import datetime
+from uuid import uuid4
 
 from fastapi import HTTPException
+from sqlalchemy import select
+from sqlalchemy.orm import Session
 
-from app.schemas.devices import Device, DeviceUpdate
-from app.utils.data_loader import read_json, write_json
-
-
-def get_devices() -> list[Device]:
-    return [Device(**record) for record in read_json("devices.json")]
+from app.models import DeviceModel
+from app.schemas.devices import Device, DeviceCreate, DeviceUpdate
 
 
-def update_device(device_id: str, payload: DeviceUpdate) -> Device:
-    devices = read_json("devices.json")
-    for device in devices:
-        if device["id"] == device_id:
-            device["status"] = payload.status
-            device["last_seen"] = datetime.now().isoformat()
-            write_json("devices.json", devices)
-            return Device(**device)
+def _to_device(record: DeviceModel) -> Device:
+    return Device(**record.__dict__)
+
+
+def get_devices(db: Session) -> list[Device]:
+    records = db.scalars(select(DeviceModel).order_by(DeviceModel.id))
+    return [_to_device(record) for record in records]
+
+
+def create_device(db: Session, payload: DeviceCreate) -> Device:
+    now = datetime.now().isoformat()
+    device = DeviceModel(
+        id=f"dev-{uuid4().hex[:8]}",
+        name=payload.name,
+        category=payload.category,
+        status=payload.status,
+        power_usage=payload.power_usage,
+        health=payload.health,
+        daily_active_hours=payload.daily_active_hours,
+        last_seen=now,
+    )
+    db.add(device)
+    db.commit()
+    db.refresh(device)
+    return _to_device(device)
+
+
+def update_device(db: Session, device_id: str, payload: DeviceUpdate) -> Device:
+    device = db.get(DeviceModel, device_id)
+    if device:
+        device.status = payload.status
+        device.last_seen = datetime.now().isoformat()
+        db.commit()
+        db.refresh(device)
+        return _to_device(device)
     raise HTTPException(status_code=404, detail="Device not found")
+
+
+def delete_device(db: Session, device_id: str) -> None:
+    device = db.get(DeviceModel, device_id)
+    if not device:
+        raise HTTPException(status_code=404, detail="Device not found")
+    db.delete(device)
+    db.commit()

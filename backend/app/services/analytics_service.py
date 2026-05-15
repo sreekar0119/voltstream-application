@@ -1,5 +1,7 @@
 from app.schemas.analytics import AnalyticsRecord
-from app.utils.data_loader import read_json
+from app.models import AnalyticsRecordModel
+from sqlalchemy import select
+from sqlalchemy.orm import Session
 
 
 PERIOD_WINDOWS = {
@@ -9,8 +11,9 @@ PERIOD_WINDOWS = {
 }
 
 
-def get_history(period: str | None = None) -> list[AnalyticsRecord]:
-    records = read_json("analytics.json")
+def get_history(db: Session, period: str | None = None) -> list[AnalyticsRecord]:
+    statement = select(AnalyticsRecordModel).order_by(AnalyticsRecordModel.timestamp)
+    records = list(db.scalars(statement))
     if period:
         records = records[-PERIOD_WINDOWS[period]:]
-    return [AnalyticsRecord(**record) for record in records]
+    return [AnalyticsRecord(**record.__dict__) for record in records]

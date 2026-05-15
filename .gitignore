@@ -7,6 +7,7 @@ frontend/.vite/
 __pycache__/
 *.pyc
 *.log
+*.db
 .env
 .env.local
 .env.production
@@ -17,6 +18,8 @@ venv/
 backend/venv/
 .pytest_cache/
 backend/.pytest_cache/
+backend/chroma_db/*
+!backend/chroma_db/.gitignore
 *.egg-info/
 build/
 

@@ -17,9 +17,9 @@ export function MetricCard({ label, value, unit, change = 0, showChange = false,
     >
       <div className="flex items-start justify-between gap-3">
         <div>
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-slate-400">{label}</p>
+          <p className="text-xs font-medium uppercase tracking-[0.22em] text-slate-400">{label}</p>
           <div className="mt-4 flex items-end gap-2">
-            <span className="text-3xl font-semibold text-white">{typeof value === "number" ? number(value) : value}</span>
+            <span className="metric-value text-3xl font-semibold text-white">{typeof value === "number" ? number(value) : value}</span>
             <span className="pb-1 text-sm text-slate-400">{unit}</span>
           </div>
         </div>

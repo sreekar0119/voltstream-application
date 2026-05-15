@@ -20,7 +20,22 @@ export function Invoices() {
   const latest = data.latest;
 
   return (
-    <motion.div {...pageMotion} className="space-y-5">
+    <div className="print-root space-y-6">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <p className="text-xs font-medium uppercase tracking-[0.18em] text-cyan-200">Billing overview</p>
+          <h1 className="mt-2 text-2xl font-semibold text-white">VoltStream Billing Report</h1>
+        </div>
+        <button
+          type="button"
+          onClick={() => window.print()}
+          className="no-print rounded-[8px] border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-cyan-100 transition hover:border-cyan-200/30 hover:bg-cyan-300/10"
+        >
+          Download PDF
+        </button>
+      </div>
+
+      <motion.div {...pageMotion} className="space-y-5">
       {data.budget_exceeded ? (
         <AlertBanner tone="amber">Projected usage is ahead of budget. Shift heavy loads to solar peak windows.</AlertBanner>
       ) : null}
@@ -75,7 +90,8 @@ export function Invoices() {
           </article>
         ))}
       </div>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 }
 
