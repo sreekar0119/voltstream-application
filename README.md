@@ -1,7 +1,7 @@
 # VoltStream
 full-stack smart energy monitoring platform for a solar-powered prosumer home.
 
-**For detailed documentation, see [DOCUMENTATION.md](DOCUMENTATION.md)**
+
 
 ## Quick Start
 
@@ -49,13 +49,5 @@ firebase use YOUR_FIREBASE_PROJECT_ID
 firebase deploy --only hosting
 ```
 
-## Documentation
 
-See [DOCUMENTATION.md](DOCUMENTATION.md) for:
-- Complete project overview and use case
-- Detailed project structure
-- Backend and frontend file explanations
-- Complete cloud deployment guide
-- API endpoints reference
-- Troubleshooting guide
-- Technology stack details
+
