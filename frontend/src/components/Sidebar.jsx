@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { BarChart3, BatteryCharging, Gauge, ReceiptText, Zap } from "lucide-react";
 
 const navItems = [
@@ -12,7 +12,7 @@ export function Sidebar() {
   return (
     <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 border-r border-white/10 bg-slate-950/58 p-4 backdrop-blur-2xl lg:block">
       <div className="flex h-full flex-col">
-        <div className="flex items-center gap-3 px-2 py-3">
+        <Link to="/" className="flex items-center gap-3 rounded-[8px] px-2 py-3 transition hover:bg-white/5">
           <div className="energy-glow grid h-11 w-11 place-items-center rounded-[8px] bg-cyan-300/10">
             <BatteryCharging className="h-6 w-6 text-cyan-200" />
           </div>
@@ -20,7 +20,7 @@ export function Sidebar() {
             <p className="text-lg font-semibold text-white">VoltStream</p>
             <p className="text-xs text-slate-400">Prosumer OS</p>
           </div>
-        </div>
+        </Link>
 
         <nav className="mt-8 space-y-2">
           {navItems.map((item) => (

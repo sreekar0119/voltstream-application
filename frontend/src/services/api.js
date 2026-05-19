@@ -50,18 +50,11 @@ export const api = {
       method: "DELETE"
     }),
   billingSummary: () => request("/billing/summary"),
-  energyChat: (message, file) => {
-    const formData = new FormData();
-    formData.append("message", message);
-    if (file) {
-      formData.append("file", file);
-    }
-
-    return request("/chat", {
+  energyChat: (message) =>
+    request("/chat", {
       method: "POST",
-      body: formData
-    });
-  },
+      body: JSON.stringify({ message })
+    }),
   documentQa: (question) =>
     request("/qa", {
       method: "POST",

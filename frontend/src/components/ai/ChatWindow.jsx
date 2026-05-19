@@ -28,19 +28,14 @@ const starterMessages = {
 };
 
 const placeholders = {
-  energy: "Ask Gemini, or ask about your attached PDF...",
+  energy: "Ask Gemini about energy...",
   qa: "Ask a question from your backend PDFs..."
 };
-
-
-const MAX_PDF_SIZE_BYTES = 10 * 1024 * 1024;
 
 export function ChatWindow({ onClose }) {
   const [activeTab, setActiveTab] = useState("energy");
   const [messages, setMessages] = useState(starterMessages);
   const [loading, setLoading] = useState(false);
-  const [attachedPdf, setAttachedPdf] = useState(null);
-  const [uploadError, setUploadError] = useState("");
   const scrollRef = useRef(null);
 
   useEffect(() => {
@@ -73,55 +68,21 @@ export function ChatWindow({ onClose }) {
     });
   }
 
-  function handlePdfSelect(file) {
-    if (file.type && file.type !== "application/pdf") {
-      setAttachedPdf(null);
-      setUploadError("Please attach a PDF file.");
-      return;
-    }
 
-    if (!file.name.toLowerCase().endsWith(".pdf")) {
-      setAttachedPdf(null);
-      setUploadError("Please attach a PDF file.");
-      return;
-    }
-
-    if (file.size === 0) {
-      setAttachedPdf(null);
-      setUploadError("That PDF is empty. Choose a document with content.");
-      return;
-    }
-
-    if (file.size > MAX_PDF_SIZE_BYTES) {
-      setAttachedPdf(null);
-      setUploadError("PDF must be 10MB or smaller.");
-      return;
-    }
-
-    setAttachedPdf(file);
-    setUploadError("");
-  }
-
-  function removePdf() {
-    setAttachedPdf(null);
-    setUploadError("");
-  }
 
   async function sendMessage(text) {
     const tab = activeTab;
-    const pdfForRequest = tab === "energy" ? attachedPdf : null;
     addMessage(tab, {
       id: `${tab}-user-${Date.now()}`,
       role: "user",
       content: text,
-      attachmentName: pdfForRequest?.name,
       createdAt: new Date()
     });
     setLoading(true);
 
     try {
       if (tab === "energy") {
-        const response = await api.energyChat(text, pdfForRequest);
+        const response = await api.energyChat(text);
         revealAssistantMessage(tab, response.answer);
       } else {
         const response = await api.documentQa(text);
@@ -194,23 +155,12 @@ export function ChatWindow({ onClose }) {
 
       <div className="flex items-center gap-2 border-t border-white/10 px-4 py-2 text-xs text-slate-500">
         <ShieldCheck className="h-3.5 w-3.5 text-cyan-200" />
-        {activeTab === "qa"
-          ? "VoltStream AI"
-          : loading && attachedPdf
-            ? `Gemini is reading ${attachedPdf.name}`
-            : attachedPdf
-              ? "Temporary PDF attached for Gemini"
-              : "Gemini energy guidance"}
+        {activeTab === "qa" ? "VoltStream AI" : "Gemini energy guidance"}
       </div>
       <ChatInput
         loading={loading}
         onSend={sendMessage}
         placeholder={placeholders[activeTab]}
-        pdfEnabled={activeTab === "energy"}
-        attachedPdf={attachedPdf}
-        uploadError={uploadError}
-        onPdfSelect={handlePdfSelect}
-        onRemovePdf={removePdf}
       />
     </motion.aside>
   );

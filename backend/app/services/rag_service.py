@@ -1,6 +1,10 @@
 from __future__ import annotations
 
+import asyncio
+from functools import lru_cache
+
 import google.generativeai as genai
+from sentence_transformers import SentenceTransformer
 
 from app.core.config import settings
 from app.services.chroma_service import get_collection
@@ -9,22 +13,20 @@ from app.services.chroma_service import get_collection
 UNKNOWN_ANSWER = "I don't have that information in the provided documents."
 
 
-async def embed_texts(texts: list[str], task_type: str = "retrieval_query") -> list[list[float]]:
-    if not settings.gemini_api_key:
-        raise RuntimeError("GEMINI_API_KEY is not configured.")
-    
-    genai.configure(api_key=settings.gemini_api_key)
-    
-    embeddings = []
-    for text in texts:
-        embedding_response = genai.embed_content(
-            model=settings.gemini_embedding_model,
-            content=text,
-            task_type=task_type,
-        )
-        embeddings.append(embedding_response["embedding"])
-    
-    return embeddings
+@lru_cache(maxsize=1)
+def _embedding_model() -> SentenceTransformer:
+    return SentenceTransformer(settings.embedding_model)
+
+
+async def embed_texts(texts: list[str]) -> list[list[float]]:
+    model = _embedding_model()
+    embeddings = await asyncio.to_thread(
+        model.encode,
+        texts,
+        normalize_embeddings=True,
+        convert_to_numpy=True,
+    )
+    return embeddings.tolist()
 
 
 async def answer_from_documents(question: str) -> dict:
@@ -63,13 +65,15 @@ PDF context:
 Question: {question}
 """.strip()
 
+    if not settings.gemini_api_key:
+        raise RuntimeError("GEMINI_API_KEY is not configured.")
+
     genai.configure(api_key=settings.gemini_api_key)
     model = genai.GenerativeModel(
         settings.gemini_model,
         system_instruction="You are a strict document-grounded assistant.",
     )
-    
-    import asyncio
+
     response = await asyncio.to_thread(
         model.generate_content,
         prompt,

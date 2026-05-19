@@ -12,11 +12,11 @@ ROOT = Path(__file__).resolve().parent
 sys.path.append(str(ROOT))
 
 from app.core.config import settings  # noqa: E402
-from app.services.chroma_service import reset_collection  # noqa: E402
-from app.services.rag_service import embed_texts  # noqa: E402
+from app.services.chroma_service import reset_collection  
+from app.services.rag_service import embed_texts  
 
 
-def _chunks(text: str, chunk_tokens: int = 420, overlap_tokens: int = 60) -> list[str]:
+def _chunks(text: str, chunk_tokens: int, overlap_tokens: int) -> list[str]:
     encoding = tiktoken.get_encoding("cl100k_base")
     tokens = encoding.encode(text)
     chunks = []
@@ -33,9 +33,14 @@ def _chunks(text: str, chunk_tokens: int = 420, overlap_tokens: int = 60) -> lis
 def _load_pdf_chunks(pdf_path: Path) -> list[dict]:
     reader = PdfReader(str(pdf_path))
     records = []
+    chunk_tokens = settings.rag_chunk_tokens
+    overlap_tokens = settings.rag_chunk_overlap
     for page_index, page in enumerate(reader.pages, start=1):
         text = page.extract_text() or ""
-        for chunk_index, chunk in enumerate(_chunks(text), start=1):
+        for chunk_index, chunk in enumerate(
+            _chunks(text, chunk_tokens=chunk_tokens, overlap_tokens=overlap_tokens),
+            start=1,
+        ):
             chunk_hash = hashlib.sha256(
                 f"{pdf_path.name}:{page_index}:{chunk_index}:{chunk}".encode("utf-8")
             ).hexdigest()[:24]
@@ -56,10 +61,6 @@ def _load_pdf_chunks(pdf_path: Path) -> list[dict]:
 async def ingest_documents() -> None:
     settings.documents_dir.mkdir(parents=True, exist_ok=True)
     pdf_paths = sorted(settings.documents_dir.glob("*.pdf"))
-
-    if not settings.gemini_api_key or settings.gemini_api_key == "your_gemini_api_key_here":
-        print("GEMINI_API_KEY is missing. Add a valid key to backend/.env before running ingest.py.")
-        return
 
     if not pdf_paths:
         print(f"No PDFs found in {settings.documents_dir}.")
@@ -83,14 +84,14 @@ async def ingest_documents() -> None:
         print(f"Embedding batch {batch_number}/{total_batches}...")
         try:
             embeddings = await asyncio.wait_for(
-                embed_texts([record["document"] for record in batch], task_type="retrieval_document"),
+                embed_texts([record["document"] for record in batch]),
                 timeout=90,
             )
         except TimeoutError:
-            print("Gemini embedding request timed out. Check your network connection and try again.")
+            print("Embedding request timed out. Check your system load and try again.")
             return
         except Exception as exc:
-            print(f"Gemini embedding request failed: {exc}")
+            print(f"Embedding request failed: {exc}")
             return
         collection.add(
             ids=[record["id"] for record in batch],

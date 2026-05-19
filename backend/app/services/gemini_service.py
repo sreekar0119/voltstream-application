@@ -64,7 +64,7 @@ def _build_model(genai):
     )
 
 
-async def _wait_for_uploaded_file(genai, uploaded_file, timeout_seconds: int = 60):
+"""async def _wait_for_uploaded_file(genai, uploaded_file, timeout_seconds: int = 60):
     deadline = asyncio.get_running_loop().time() + timeout_seconds
     file = uploaded_file
 
@@ -78,7 +78,7 @@ async def _wait_for_uploaded_file(genai, uploaded_file, timeout_seconds: int = 6
             raise RuntimeError("Gemini timed out while processing the uploaded PDF.")
 
         await asyncio.sleep(1)
-        file = await asyncio.to_thread(genai.get_file, uploaded_file.name)
+        file = await asyncio.to_thread(genai.get_file, uploaded_file.name)"""
 
 
 async def generate_energy_answer(message: str) -> str:
@@ -95,7 +95,7 @@ async def generate_energy_answer(message: str) -> str:
     return answer or _empty_response_reason(response)
 
 
-async def generate_answer_from_pdf(message: str, pdf_path: Path, display_name: str) -> str:
+"""async def generate_answer_from_pdf(message: str, pdf_path: Path, display_name: str) -> str:
     genai = _configure_genai()
     model = _build_model(genai)
     uploaded_file = None
@@ -131,4 +131,4 @@ async def generate_answer_from_pdf(message: str, pdf_path: Path, display_name: s
             try:
                 await asyncio.to_thread(genai.delete_file, uploaded_file.name)
             except Exception:
-                pass
+                pass"""

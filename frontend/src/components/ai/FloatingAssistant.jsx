@@ -21,24 +21,24 @@ export function FloatingAssistant() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 6, scale: 0.98 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-[88px] right-[78px] z-50 max-w-[240px] rounded-[12px] border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-100 shadow-[0_12px_40px_rgba(15,23,42,0.45)] backdrop-blur sm:right-[96px]"
+            className="fixed bottom-[88px] right-[78px] z-50 max-w-[240px] rounded-[12px] border border-gray-200 bg-white px-4 py-3 text-sm text-slate-900 shadow-[0_12px_40px_rgba(0,0,0,0.25)] sm:right-[96px]"
           >
-            <span className="pointer-events-none absolute -right-2 bottom-5 h-4 w-4 rotate-45 rounded-[4px] border border-white/20 bg-slate-900/80 shadow-[0_6px_16px_rgba(15,23,42,0.35)]" />
+            <span className="pointer-events-none absolute -right-2 bottom-5 h-4 w-4 rotate-45 rounded-[4px] border border-gray-200 bg-white shadow-[0_6px_16px_rgba(0,0,0,0.15)]" />
             <button
               type="button"
               aria-label="Dismiss greeting"
               onClick={() => setShowGreeting(false)}
-              className="absolute right-2 top-2 grid h-6 w-6 place-items-center rounded-[6px] text-slate-400 transition hover:bg-white/10 hover:text-white"
+              className="absolute right-2 top-2 grid h-6 w-6 place-items-center rounded-[6px] text-slate-400 transition hover:bg-gray-200 hover:text-slate-900"
             >
               ×
             </button>
             <div className="flex items-start gap-2 pr-6">
-              <span className="grid h-8 w-8 shrink-0 place-items-center rounded-[8px] bg-cyan-300/10 text-cyan-100">
+              <span className="grid h-8 w-8 shrink-0 place-items-center rounded-[8px] bg-cyan-300/10 text-cyan-600">
                 <Bot className="h-4 w-4" />
               </span>
               <div>
-                <p className="text-sm font-semibold text-white">Hi, I'm Disha.</p>
-                <p className="mt-1 text-xs text-slate-300">How may I help you?</p>
+                <p className="text-sm font-semibold text-slate-900">Hi, I'm Disha.</p>
+                <p className="mt-1 text-xs text-slate-600">How may I help you?</p>
               </div>
             </div>
           </motion.div>
