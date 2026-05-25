@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { Cpu, Plus, PlugZap, ShieldCheck, X, Zap } from "lucide-react";
 import { api } from "../services/api.js";
@@ -21,6 +21,7 @@ export function SmartControl() {
   const [deviceForm, setDeviceForm] = useState({
     name: "",
     category: "Utility",
+    room: "General",
     status: "off",
     power_usage: 0,
     health: "optimal",
@@ -32,6 +33,11 @@ export function SmartControl() {
     () => (data ?? []).filter((device) => category === "All" || device.category === category),
     [data, category]
   );
+
+  useEffect(() => {
+    window.addEventListener("voltstream:devices-updated", refresh);
+    return () => window.removeEventListener("voltstream:devices-updated", refresh);
+  }, [refresh]);
 
   async function toggleDevice(id, status) {
     setBusy(id);
@@ -56,6 +62,7 @@ export function SmartControl() {
       setDeviceForm({
         name: "",
         category: "Utility",
+        room: "General",
         status: "off",
         power_usage: 0,
         health: "optimal",
@@ -102,7 +109,11 @@ export function SmartControl() {
 
       <div className="grid gap-5 xl:grid-cols-[.75fr_1.25fr]">
         <ChartCard title="Load by category" subtitle="Circuit allocation across smart home systems">
-          <DeviceCategoryChart devices={data} />
+          <div className="flex min-h-0 items-center justify-center">
+            <div className="w-full max-w-[360px]">
+              <DeviceCategoryChart devices={data} />
+            </div>
+          </div>
           <p className="mt-3 text-center text-sm text-slate-400">{number(activeLoad)} W currently active</p>
         </ChartCard>
         <section className="glass rounded-[8px] p-4 sm:p-5">
@@ -136,7 +147,7 @@ export function SmartControl() {
             </div>
           </div>
           {showForm && (
-            <form onSubmit={submitDevice} className="mb-5 grid gap-3 rounded-[8px] border border-white/10 bg-slate-950/35 p-4 md:grid-cols-3">
+            <form onSubmit={submitDevice} className="mb-5 grid gap-3 rounded-[8px] border border-white/10 bg-slate-950/35 p-4 md:grid-cols-4">
               <input
                 required
                 minLength={2}
@@ -153,6 +164,15 @@ export function SmartControl() {
                 value={deviceForm.category}
                 onChange={(event) => updateForm("category", event.target.value)}
                 placeholder="Category"
+                className="h-11 rounded-[8px] border border-white/10 bg-slate-950/60 px-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/60"
+              />
+              <input
+                required
+                minLength={2}
+                maxLength={40}
+                value={deviceForm.room}
+                onChange={(event) => updateForm("room", event.target.value)}
+                placeholder="Room"
                 className="h-11 rounded-[8px] border border-white/10 bg-slate-950/60 px-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/60"
               />
               <input
@@ -194,27 +214,29 @@ export function SmartControl() {
                 placeholder="Daily hours"
                 className="h-11 rounded-[8px] border border-white/10 bg-slate-950/60 px-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/60"
               />
-              {formError && <p className="text-sm text-rose-200 md:col-span-2">{formError}</p>}
+              {formError && <p className="text-sm text-rose-200 md:col-span-3">{formError}</p>}
               <button
                 type="submit"
                 disabled={busy === "new-device"}
-                className="inline-flex h-11 items-center justify-center gap-2 rounded-[8px] bg-cyan-300 px-4 text-sm font-semibold text-slate-950 transition hover:bg-cyan-200 disabled:opacity-60 md:col-start-3"
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-[8px] bg-cyan-300 px-4 text-sm font-semibold text-slate-950 transition hover:bg-cyan-200 disabled:opacity-60 md:col-start-4"
               >
                 <Plus className="h-4 w-4" />
                 Save Device
               </button>
             </form>
           )}
-          <div className="grid gap-4 md:grid-cols-2">
-            {visible.map((device) => (
-              <DeviceCard
-                key={device.id}
-                device={device}
-                busy={busy === device.id}
-                onToggle={toggleDevice}
-                onDelete={removeDevice}
-              />
-            ))}
+          <div className="max-h-[60vh] overflow-x-auto overflow-y-auto custom-scrollbar pr-2">
+            <div className="grid min-w-[680px] gap-4 md:grid-cols-2">
+              {visible.map((device) => (
+                <DeviceCard
+                  key={device.id}
+                  device={device}
+                  busy={busy === device.id}
+                  onToggle={toggleDevice}
+                  onDelete={removeDevice}
+                />
+              ))}
+            </div>
           </div>
         </section>
       </div>

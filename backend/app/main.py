@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.config import settings
 from app.db_init import init_db
-from app.routers import analytics, billing, chat, dashboard, devices, qa
+from app.routers import agent, analytics, billing, chat, dashboard, devices, qa
 
 
 @asynccontextmanager
@@ -30,6 +30,7 @@ app.include_router(devices.router, prefix=settings.api_prefix)
 app.include_router(billing.router, prefix=settings.api_prefix)
 app.include_router(chat.router, prefix=settings.api_prefix)
 app.include_router(qa.router, prefix=settings.api_prefix)
+app.include_router(agent.router, prefix=settings.api_prefix)
 
 
 @app.get("/health")

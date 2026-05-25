@@ -1,20 +1,29 @@
 from __future__ import annotations
 
 import asyncio
+import os
 from functools import lru_cache
+from typing import TYPE_CHECKING
 
 import google.generativeai as genai
-from sentence_transformers import SentenceTransformer
 
 from app.core.config import settings
 from app.services.chroma_service import get_collection
+
+os.environ.setdefault("USE_TF", "0")
+os.environ.setdefault("TRANSFORMERS_NO_TF", "1")
+
+if TYPE_CHECKING:
+    from sentence_transformers import SentenceTransformer
 
 
 UNKNOWN_ANSWER = "I don't have that information in the provided documents."
 
 
 @lru_cache(maxsize=1)
-def _embedding_model() -> SentenceTransformer:
+def _embedding_model() -> "SentenceTransformer":
+    from sentence_transformers import SentenceTransformer
+
     return SentenceTransformer(settings.embedding_model)
 
 

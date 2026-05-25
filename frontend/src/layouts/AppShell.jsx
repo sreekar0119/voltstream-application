@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Outlet, useLocation } from "react-router-dom";
+import { DeviceAgentAssistant } from "../components/ai/DeviceAgentAssistant.jsx";
 import { FloatingAssistant } from "../components/ai/FloatingAssistant.jsx";
 import { Sidebar } from "../components/Sidebar.jsx";
 import { Topbar } from "../components/Topbar.jsx";
@@ -28,6 +29,7 @@ export function AppShell() {
       </div>
       <div className="no-print">
         <FloatingAssistant />
+        <DeviceAgentAssistant />
       </div>
     </div>
   );

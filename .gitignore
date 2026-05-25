@@ -12,6 +12,10 @@ __pycache__/
 .env.local
 .env.production
 .env.*.local
+backend/secrets/
+backend/app/secrets/
+*service-account*.json
+*credentials*.json
 
 # Python
 venv/

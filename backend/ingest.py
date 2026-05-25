@@ -11,7 +11,7 @@ from pypdf import PdfReader
 ROOT = Path(__file__).resolve().parent
 sys.path.append(str(ROOT))
 
-from app.core.config import settings  # noqa: E402
+from app.core.config import settings  
 from app.services.chroma_service import reset_collection  
 from app.services.rag_service import embed_texts  
 

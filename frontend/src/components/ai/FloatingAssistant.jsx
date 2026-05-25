@@ -30,7 +30,7 @@ export function FloatingAssistant() {
               onClick={() => setShowGreeting(false)}
               className="absolute right-2 top-2 grid h-6 w-6 place-items-center rounded-[6px] text-slate-400 transition hover:bg-gray-200 hover:text-slate-900"
             >
-              ×
+              x
             </button>
             <div className="flex items-start gap-2 pr-6">
               <span className="grid h-8 w-8 shrink-0 place-items-center rounded-[8px] bg-cyan-300/10 text-cyan-600">

@@ -30,7 +30,15 @@ class Settings(BaseModel):
         )
     )
     gemini_api_key: str = os.getenv("GEMINI_API_KEY", "")
-    gemini_model: str = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+    gemini_model: str = os.getenv("GEMINI_MODEL", "gemini-1.5-flash")
+    vertex_ai_project: str = os.getenv("VERTEX_AI_PROJECT", os.getenv("GOOGLE_CLOUD_PROJECT", ""))
+    vertex_ai_location: str = os.getenv("VERTEX_AI_LOCATION", "us-central1")
+    vertex_ai_model: str = os.getenv("VERTEX_AI_MODEL", "gemini-1.5-flash")
+    google_application_credentials: Path | None = (
+        _path(os.getenv("GOOGLE_APPLICATION_CREDENTIALS", ""), BASE_DIR / "secrets" / "service-account.json")
+        if os.getenv("GOOGLE_APPLICATION_CREDENTIALS", "").strip()
+        else None
+    )
     embedding_model: str = os.getenv("EMBEDDING_MODEL", "all-MiniLM-L6-v2")
     database_url: Path = _path(os.getenv("DATABASE_URL", ""), BASE_DIR / "voltstream.db")
     documents_dir: Path = _path(os.getenv("DOCUMENTS_DIR", ""), BASE_DIR / "documents")

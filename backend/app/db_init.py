@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from sqlalchemy import select
+from sqlalchemy import inspect, text
 from sqlalchemy.orm import Session
 
 from app.database import Base, engine
@@ -25,8 +26,31 @@ def _seed_table(db: Session, model: type, filename: str) -> None:
 
 def init_db() -> None:
     Base.metadata.create_all(bind=engine)
+    _ensure_device_columns()
 
     with Session(engine) as db:
         _seed_table(db, AnalyticsRecordModel, "analytics.json")
         _seed_table(db, BillingRecordModel, "billing.json")
         _seed_table(db, DeviceModel, "devices.json")
+
+
+def _ensure_device_columns() -> None:
+    inspector = inspect(engine)
+    if "devices" not in inspector.get_table_names():
+        return
+
+    columns = {column["name"] for column in inspector.get_columns("devices")}
+    statements = []
+    if "room" not in columns:
+        statements.append("ALTER TABLE devices ADD COLUMN room VARCHAR NOT NULL DEFAULT 'General'")
+    if "created_at" not in columns:
+        statements.append("ALTER TABLE devices ADD COLUMN created_at VARCHAR NOT NULL DEFAULT ''")
+    if "updated_at" not in columns:
+        statements.append("ALTER TABLE devices ADD COLUMN updated_at VARCHAR NOT NULL DEFAULT ''")
+
+    if not statements:
+        return
+
+    with engine.begin() as connection:
+        for statement in statements:
+            connection.execute(text(statement))

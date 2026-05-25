@@ -1,5 +1,4 @@
 from __future__ import annotations
-
 import json
 import math
 import random
@@ -9,10 +8,8 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "mock_data"
 
-
 def clamp(value: float, low: float, high: float) -> float:
     return max(low, min(high, value))
-
 
 def generate_analytics() -> list[dict]:
     random.seed(42)

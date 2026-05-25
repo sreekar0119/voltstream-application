@@ -25,8 +25,12 @@ export function LiveDashboard() {
     const id = window.setInterval(() => {
       refreshDashboard({ silent: true });
     }, 10000);
+    window.addEventListener("voltstream:devices-updated", refreshDashboard);
 
-    return () => window.clearInterval(id);
+    return () => {
+      window.clearInterval(id);
+      window.removeEventListener("voltstream:devices-updated", refreshDashboard);
+    };
   }, [refreshDashboard]);
 
   if (dashboard.loading || analytics.loading) return <LoadingDashboard />;

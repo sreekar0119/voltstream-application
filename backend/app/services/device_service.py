@@ -24,11 +24,14 @@ def create_device(db: Session, payload: DeviceCreate) -> Device:
         id=f"dev-{uuid4().hex[:8]}",
         name=payload.name,
         category=payload.category,
+        room=payload.room,
         status=payload.status,
         power_usage=payload.power_usage,
         health=payload.health,
         daily_active_hours=payload.daily_active_hours,
         last_seen=now,
+        created_at=now,
+        updated_at=now,
     )
     db.add(device)
     db.commit()
@@ -40,7 +43,9 @@ def update_device(db: Session, device_id: str, payload: DeviceUpdate) -> Device:
     device = db.get(DeviceModel, device_id)
     if device:
         device.status = payload.status
-        device.last_seen = datetime.now().isoformat()
+        now = datetime.now().isoformat()
+        device.last_seen = now
+        device.updated_at = now
         db.commit()
         db.refresh(device)
         return _to_device(device)
