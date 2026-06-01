@@ -225,18 +225,16 @@ export function SmartControl() {
               </button>
             </form>
           )}
-          <div className="max-h-[60vh] overflow-x-auto overflow-y-auto custom-scrollbar pr-2">
-            <div className="grid min-w-[680px] gap-4 md:grid-cols-2">
-              {visible.map((device) => (
-                <DeviceCard
-                  key={device.id}
-                  device={device}
-                  busy={busy === device.id}
-                  onToggle={toggleDevice}
-                  onDelete={removeDevice}
-                />
-              ))}
-            </div>
+          <div className="grid min-w-[680px] gap-4 md:grid-cols-2 max-h-[60vh] overflow-x-auto overflow-y-auto custom-scrollbar pr-2">
+            {visible.map((device) => (
+              <DeviceCard
+                key={device.id}
+                device={device}
+                busy={busy === device.id}
+                onToggle={toggleDevice}
+                onDelete={removeDevice}
+              />
+            ))}
           </div>
         </section>
       </div>

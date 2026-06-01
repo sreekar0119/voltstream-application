@@ -86,6 +86,15 @@ def toggle_device(db: Session, device_name: str, state: str) -> dict:
     if not device:
         return {"ok": False, "message": f"I could not find {device_name}.", "changed": False}
 
+    current_state = (device.status or "").lower().strip()
+    if current_state == state:
+        return {
+            "ok": True,
+            "message": f"{device.name} is already {state}.",
+            "changed": False,
+            "device": _device_payload(device),
+        }
+
     now = datetime.now().isoformat()
     device.status = state
     device.last_seen = now

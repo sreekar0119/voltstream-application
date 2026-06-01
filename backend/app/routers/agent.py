@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import asyncio
 from collections.abc import AsyncIterator
 from typing import Any
 
@@ -9,9 +10,9 @@ from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 
-from app.agents.session_manager import session_manager
 from app.agents.voltstream_agent import run_voltstream_agent
 from app.database import get_db
+from app.services.session_manager import session_manager
 
 
 class AgentRequest(BaseModel):
@@ -27,6 +28,7 @@ class AgentResponse(BaseModel):
     tool: str | None = None
     observation: dict[str, Any] | None = None
     workflow: list[dict[str, Any]] = Field(default_factory=list)
+    trace: list[dict[str, Any]] = Field(default_factory=list)
     session_id: str
 
 
@@ -48,12 +50,29 @@ async def agent(payload: AgentRequest, db: Session = Depends(get_db)) -> dict[st
 
 
 async def _agent_event_stream(payload: AgentRequest, db: Session) -> AsyncIterator[str]:
-    yield f"event: status\ndata: {json.dumps({'state': 'planning'})}\n\n"
-    result = await run_voltstream_agent(
-        db=db,
-        message=payload.message.strip(),
-        session_id=payload.session_id,
+    queue: asyncio.Queue[dict[str, Any]] = asyncio.Queue()
+
+    async def trace_sink(entry: dict[str, Any]) -> None:
+        await queue.put(entry)
+
+    yield f"event: status\ndata: {json.dumps({'state': 'runner_started'})}\n\n"
+    task = asyncio.create_task(
+        run_voltstream_agent(
+            db=db,
+            message=payload.message.strip(),
+            session_id=payload.session_id,
+            trace_sink=trace_sink,
+        )
     )
+
+    while not task.done() or not queue.empty():
+        try:
+            entry = await asyncio.wait_for(queue.get(), timeout=0.15)
+        except asyncio.TimeoutError:
+            continue
+        yield f"event: trace\ndata: {json.dumps(entry, default=str)}\n\n"
+
+    result = await task
     yield f"event: metadata\ndata: {json.dumps({k: v for k, v in result.items() if k != 'response'}, default=str)}\n\n"
 
     words = result["response"].split(" ")

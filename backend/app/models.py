@@ -47,3 +47,13 @@ class DeviceModel(Base):
     last_seen: Mapped[str] = mapped_column(String, nullable=False)
     created_at: Mapped[str] = mapped_column(String, nullable=False, default="")
     updated_at: Mapped[str] = mapped_column(String, nullable=False, default="")
+
+
+class UsageHistoryModel(Base):
+    __tablename__ = "usage_history"
+
+    id: Mapped[str] = mapped_column(String, primary_key=True)
+    device_name: Mapped[str] = mapped_column(String, nullable=False, index=True)
+    energy_usage: Mapped[float] = mapped_column(Float, nullable=False)
+    timestamp: Mapped[str] = mapped_column(String, nullable=False, index=True)
+    duration: Mapped[float] = mapped_column(Float, nullable=False)

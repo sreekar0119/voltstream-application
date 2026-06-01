@@ -20,11 +20,11 @@ export function DeviceCard({ device, onToggle, onDelete, busy }) {
     <motion.article
       layout
       whileHover={{ y: -5 }}
-      className={`glass-soft rounded-[8px] p-2 transition ${active ? "energy-glow" : ""}`}
+      className={`glass-soft rounded-[8px] p-2.5 transition ${active ? "energy-glow" : ""}`}
     >
       <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3">
         <div className="flex min-w-0 items-center gap-3">
-          <div className={`grid h-8 w-8 place-items-center rounded-[8px] ${active ? "bg-cyan-300/10 text-cyan-100" : "bg-slate-800 text-slate-400"}`}>
+          <div className={`grid h-9 w-9 place-items-center rounded-[8px] ${active ? "bg-cyan-300/10 text-cyan-100" : "bg-slate-800 text-slate-400"}`}>
             <Icon className="h-4 w-4" />
           </div>
           <div className="min-w-0">
@@ -47,7 +47,7 @@ export function DeviceCard({ device, onToggle, onDelete, busy }) {
           <Toggle checked={active} disabled={busy} size="sm" onChange={(next) => onToggle(device.id, next ? "on" : "off")} />
         </div>
       </div>
-      <div className="mt-2 grid grid-cols-3 gap-3">
+      <div className="mt-3 grid grid-cols-3 gap-3">
         <div>
           <p className="text-[11px] text-slate-500">Load</p>
           <p className="mt-1 text-xs font-semibold text-white">{number(device.power_usage, 0)} W</p>

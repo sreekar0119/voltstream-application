@@ -78,6 +78,9 @@ async function streamRequest(path, body, handlers = {}) {
         metadata = data;
         handlers.onMetadata?.(data);
       }
+      if (event === "trace") {
+        handlers.onTrace?.(data);
+      }
       if (event === "token") {
         finalResponse += data.token;
         handlers.onToken?.(data.token);

@@ -33,7 +33,7 @@ class Settings(BaseModel):
     gemini_model: str = os.getenv("GEMINI_MODEL", "gemini-1.5-flash")
     vertex_ai_project: str = os.getenv("VERTEX_AI_PROJECT", os.getenv("GOOGLE_CLOUD_PROJECT", ""))
     vertex_ai_location: str = os.getenv("VERTEX_AI_LOCATION", "us-central1")
-    vertex_ai_model: str = os.getenv("VERTEX_AI_MODEL", "gemini-1.5-flash")
+    vertex_ai_model: str = os.getenv("VERTEX_AI_MODEL", "gemini-2.5-flash")
     google_application_credentials: Path | None = (
         _path(os.getenv("GOOGLE_APPLICATION_CREDENTIALS", ""), BASE_DIR / "secrets" / "service-account.json")
         if os.getenv("GOOGLE_APPLICATION_CREDENTIALS", "").strip()

@@ -1,28 +1,25 @@
 from __future__ import annotations
 
+import logging
 import os
-from typing import Any, Callable, get_type_hints
+from collections.abc import Awaitable, Callable
+from typing import Any
 
 from sqlalchemy.orm import Session
 
-from app.agents.prompts import VOLTSTREAM_AGENT_INSTRUCTION
+from app.agents.context import current_db, current_trace
+from app.agents.orchestrator_agent import build_orchestrator_agent
 from app.core.config import settings
-from app.tools.device_tools import (
-    create_device as create_device_tool,
-    delete_device as delete_device_tool,
-    get_active_devices as get_active_devices_tool,
-    get_device_status as get_device_status_tool,
-    toggle_device as toggle_device_tool,
-)
-from app.tools.energy_tools import (
-    calculate_total_consumption as calculate_total_consumption_tool,
-    recommend_energy_saving as recommend_energy_saving_tool,
-)
 
 
-APP_NAME = "voltstream_agentic_system"
+APP_NAME = "voltstream_multi_agent_system"
+TraceSink = Callable[[dict[str, Any]], Awaitable[None]]
+
 _SESSION_SERVICE = None
 _KNOWN_ADK_SESSIONS: set[tuple[str, str]] = set()
+_ADK_WARMED = False
+
+logger = logging.getLogger(__name__)
 
 
 def _configure_vertex_environment() -> None:
@@ -34,78 +31,107 @@ def _configure_vertex_environment() -> None:
         os.environ.setdefault("GOOGLE_APPLICATION_CREDENTIALS", str(settings.google_application_credentials))
 
 
-def _named_tool(name: str, fn: Callable[..., dict[str, Any]]) -> Callable[..., dict[str, Any]]:
-    fn.__name__ = name
-    fn.__annotations__ = get_type_hints(fn, globalns=globals(), localns={"Any": Any})
-    return fn
+def warmup_adk() -> None:
+    global _SESSION_SERVICE, _ADK_WARMED
+    if _ADK_WARMED:
+        return
 
-
-def register_voltstream_tools(db: Session) -> list[Any]:
     try:
-        from google.adk.tools import FunctionTool
+        from google.adk.sessions import InMemorySessionService
     except Exception as exc:
-        raise RuntimeError("google-adk is not installed or importable. Install backend requirements before using ADK workflows.") from exc
+        logger.warning("ADK warmup skipped: %s", exc)
+        return
 
-    def toggle_device(device_name: str, state: str) -> dict[str, Any]:
-        """Turn a smart-home device on or off by name."""
-        if state not in {"on", "off"}:
-            return {"ok": False, "message": "State must be 'on' or 'off'.", "changed": False}
-        return toggle_device_tool(db, device_name, state)
-
-    def get_device_status(device_name: str) -> dict[str, Any]:
-        """Get status, room, category, health, and power usage for a device."""
-        return get_device_status_tool(db, device_name)
-
-    def get_active_devices() -> dict[str, Any]:
-        """List devices currently switched on."""
-        return get_active_devices_tool(db)
-
-    def calculate_total_consumption() -> dict[str, Any]:
-        """Calculate total wattage across all currently active devices."""
-        return calculate_total_consumption_tool(db)
-
-    def recommend_energy_saving() -> dict[str, Any]:
-        """Recommend the highest-impact energy-saving opportunities."""
-        return recommend_energy_saving_tool(db)
-
-    def create_device(name: str, category: str, room: str, power_usage: int) -> dict[str, Any]:
-        """Create a new smart-home device with room, category, and wattage."""
-        return create_device_tool(db, name, category, room or "General", int(power_usage), 0)
-
-    def delete_device(device_name: str) -> dict[str, Any]:
-        """Delete a smart-home device by name after identifying the target."""
-        return delete_device_tool(db, device_name)
-
-    return [
-        FunctionTool(func=_named_tool("toggle_device", toggle_device)),
-        FunctionTool(func=_named_tool("get_device_status", get_device_status)),
-        FunctionTool(func=_named_tool("get_active_devices", get_active_devices)),
-        FunctionTool(func=_named_tool("calculate_total_consumption", calculate_total_consumption)),
-        FunctionTool(func=_named_tool("recommend_energy_saving", recommend_energy_saving)),
-        FunctionTool(func=_named_tool("create_device", create_device)),
-        FunctionTool(func=_named_tool("delete_device", delete_device)),
-    ]
+    _configure_vertex_environment()
+    if _SESSION_SERVICE is None:
+        _SESSION_SERVICE = InMemorySessionService()
+    build_orchestrator_agent()
+    _ADK_WARMED = True
 
 
-def build_voltstream_agent(db: Session):
-    try:
-        from google.adk.agents import Agent
-    except Exception as exc:
-        raise RuntimeError("google-adk is not installed or importable. Install backend requirements before using ADK workflows.") from exc
-
-    return Agent(
-        name="voltstream_disha",
-        model=settings.vertex_ai_model or "gemini-2.5-flash",
-        description="VoltStream ADK smart-home energy operator",
-        instruction=VOLTSTREAM_AGENT_INSTRUCTION,
-        tools=register_voltstream_tools(db),
-    )
+def _agent_label(author: str | None) -> str:
+    labels = {
+        "orchestrator_agent": "Orchestrator",
+        "analyst_agent": "Analyst Agent",
+        "advisor_agent": "Advisor Agent",
+    }
+    return labels.get(author or "", author or "ADK Runner")
 
 
-async def run_adk_agent(db: Session, message: str, user_id: str, session_id: str) -> dict[str, Any]:
+def _tool_trace(author: str | None, name: str, args: dict[str, Any]) -> dict[str, Any]:
+    if name == "analyst_agent":
+        return {
+            "agent": "Orchestrator",
+            "event": "delegation",
+            "message": "[Orchestrator] Routing request to Analyst Agent...",
+            "tool": name,
+            "args": args,
+        }
+    if name == "advisor_agent":
+        return {
+            "agent": "Orchestrator",
+            "event": "delegation",
+            "message": "[Orchestrator] Passing analysis to Advisor Agent...",
+            "tool": name,
+            "args": args,
+        }
+    if name == "get_usage_history":
+        message = "[Analyst Agent] Retrieving usage_history..."
+    elif name == "calculate_peak_usage":
+        message = "[Analyst Agent] Calculating peak consumption..."
+    elif name == "summarize_usage_patterns":
+        message = "[Analyst Agent] Retrieving usage_history and summarizing energy patterns..."
+    elif name == "recommend_energy_saving":
+        message = "[Advisor Agent] Generating recommendations..."
+    else:
+        message = f"[{_agent_label(author)}] Calling {name}..."
+
+    return {
+        "agent": _agent_label(author),
+        "event": "tool_call",
+        "message": message,
+        "tool": name,
+        "args": args,
+    }
+
+
+async def _emit(trace: list[dict[str, Any]], entry: dict[str, Any], trace_sink: TraceSink | None) -> None:
+    trace.append(entry)
+    if trace_sink:
+        await trace_sink(entry)
+
+
+def _parts(event: Any) -> list[Any]:
+    content = getattr(event, "content", None)
+    return list(getattr(content, "parts", []) or [])
+
+
+async def _ensure_session(session_service: Any, user_id: str, session_id: str, state: dict[str, Any]) -> None:
+    session_key = (user_id, session_id)
+    if session_key in _KNOWN_ADK_SESSIONS:
+        return
+
+    existing = await session_service.get_session(app_name=APP_NAME, user_id=user_id, session_id=session_id)
+    if existing is None:
+        await session_service.create_session(
+            app_name=APP_NAME,
+            user_id=user_id,
+            session_id=session_id,
+            state=state,
+        )
+    _KNOWN_ADK_SESSIONS.add(session_key)
+
+
+async def run_adk_agent(
+    db: Session,
+    message: str,
+    user_id: str,
+    session_id: str,
+    context: dict[str, Any] | None = None,
+    trace_sink: TraceSink | None = None,
+) -> dict[str, Any]:
     try:
         from google.adk.runners import Runner
-        from google.adk.sessions import InMemorySessionService
         from google.genai import types
     except Exception as exc:
         raise RuntimeError(
@@ -113,69 +139,113 @@ async def run_adk_agent(db: Session, message: str, user_id: str, session_id: str
             f"Import error: {exc}"
         ) from exc
 
-    _configure_vertex_environment()
+    warmup_adk()
 
     global _SESSION_SERVICE
     if _SESSION_SERVICE is None:
-        _SESSION_SERVICE = InMemorySessionService()
-    session_service = _SESSION_SERVICE
+        raise RuntimeError("ADK session service is not initialized.")
 
-    session_key = (user_id, session_id)
-    if session_key not in _KNOWN_ADK_SESSIONS:
-        try:
-            await session_service.create_session(app_name=APP_NAME, user_id=user_id, session_id=session_id)
-        except TypeError:
-            await session_service.create_session(APP_NAME, user_id, session_id)
-        _KNOWN_ADK_SESSIONS.add(session_key)
+    session_state = {
+        "platform": "VoltStream",
+        "conversation_context": context or {},
+        "handoff_contract": "Orchestrator delegates specialist work through AgentTool and stores specialist outputs in session state.",
+    }
+    await _ensure_session(_SESSION_SERVICE, user_id, session_id, session_state)
 
-    runner = Runner(
-        agent=build_voltstream_agent(db),
-        app_name=APP_NAME,
-        session_service=session_service,
+    trace: list[dict[str, Any]] = []
+    workflow: list[dict[str, Any]] = []
+    await _emit(
+        trace,
+        {
+            "agent": "Orchestrator",
+            "event": "runner_start",
+            "message": "[Orchestrator] Received request. Starting ADK Runner orchestration...",
+        },
+        trace_sink,
     )
 
-    content = types.Content(role="user", parts=[types.Part(text=message)])
-    events = runner.run_async(user_id=user_id, session_id=session_id, new_message=content)
-
-    workflow: list[dict[str, Any]] = [{"step": "ADK_RUNNER", "result": "started"}]
+    db_token = current_db.set(db)
+    trace_token = current_trace.set(trace)
     final_response = ""
     observation: dict[str, Any] | None = None
     tool_name: str | None = None
     changed = False
 
-    async for event in events:
-        content_obj = getattr(event, "content", None)
-        for part in getattr(content_obj, "parts", []) or []:
-            function_call = getattr(part, "function_call", None) or getattr(part, "functionCall", None)
-            if function_call:
-                tool_name = getattr(function_call, "name", None)
-                workflow.append({"step": "TOOL_CALL", "result": tool_name, "args": dict(getattr(function_call, "args", {}) or {})})
+    try:
+        runner = Runner(
+            agent=build_orchestrator_agent(),
+            app_name=APP_NAME,
+            session_service=_SESSION_SERVICE,
+        )
+        content = types.Content(role="user", parts=[types.Part(text=message)])
 
-            function_response = getattr(part, "function_response", None) or getattr(part, "functionResponse", None)
-            if function_response:
-                response_payload = getattr(function_response, "response", None)
-                if isinstance(response_payload, dict):
-                    observation = response_payload
-                    changed = changed or bool(response_payload.get("changed"))
-                workflow.append({"step": "TOOL_OBSERVATION", "result": response_payload})
+        async for event in runner.run_async(user_id=user_id, session_id=session_id, new_message=content):
+            author = getattr(event, "author", None)
+            for part in _parts(event):
+                function_call = getattr(part, "function_call", None) or getattr(part, "functionCall", None)
+                if function_call:
+                    tool_name = getattr(function_call, "name", None) or "unknown_tool"
+                    args = dict(getattr(function_call, "args", {}) or {})
+                    workflow.append({"step": "TOOL_CALL", "agent": _agent_label(author), "tool": tool_name, "args": args})
+                    await _emit(trace, _tool_trace(author, tool_name, args), trace_sink)
 
-        is_final = getattr(event, "is_final_response", None)
-        if callable(is_final) and is_final():
-            parts = getattr(getattr(event, "content", None), "parts", []) or []
-            final_response = "".join(getattr(part, "text", "") or "" for part in parts).strip()
-            workflow.append({"step": "FINAL_RESPONSE", "result": final_response})
+                function_response = getattr(part, "function_response", None) or getattr(part, "functionResponse", None)
+                if function_response:
+                    response_payload = getattr(function_response, "response", None)
+                    response_name = getattr(function_response, "name", None) or tool_name or "unknown_tool"
+                    if isinstance(response_payload, dict):
+                        observation = response_payload
+                        changed = changed or bool(response_payload.get("changed"))
+                    workflow.append(
+                        {
+                            "step": "TOOL_OBSERVATION",
+                            "agent": _agent_label(author),
+                            "tool": response_name,
+                            "result": response_payload,
+                        }
+                    )
+                    await _emit(
+                        trace,
+                        {
+                            "agent": _agent_label(author),
+                            "event": "tool_observation",
+                            "message": f"[{_agent_label(author)}] Received {response_name} result.",
+                            "tool": response_name,
+                        },
+                        trace_sink,
+                    )
+
+            is_final = getattr(event, "is_final_response", None)
+            if callable(is_final) and is_final():
+                parts = _parts(event)
+                final_response = "".join(getattr(part, "text", "") or "" for part in parts).strip()
+                workflow.append({"step": "FINAL_RESPONSE", "agent": _agent_label(author), "result": final_response})
+    finally:
+        current_db.reset(db_token)
+        current_trace.reset(trace_token)
 
     if not final_response and observation:
         final_response = str(observation.get("message") or "Done.")
     if not final_response:
-        final_response = "I could not complete that workflow."
+        final_response = "I could not complete that ADK multi-agent workflow."
+
+    await _emit(
+        trace,
+        {
+            "agent": "Orchestrator",
+            "event": "final_response",
+            "message": "[Orchestrator] Synthesizing final response for the user...",
+        },
+        trace_sink,
+    )
 
     return {
         "response": final_response,
-        "intent": "agentic_workflow",
+        "intent": "adk_multi_agent_workflow",
         "ai_used": True,
         "changed": changed,
         "tool": tool_name,
         "observation": observation,
         "workflow": workflow,
+        "trace": trace,
     }

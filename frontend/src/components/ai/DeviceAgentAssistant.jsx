@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { Bot, BrainCircuit, Cpu, Loader2, Mic, Send, Sparkles, X, Zap } from "lucide-react";
+import { Bot, BrainCircuit, Cpu, GitBranch, Loader2, Mic, Send, Sparkles, X, Zap } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 import { api } from "../../services/api.js";
@@ -35,12 +35,13 @@ export function DeviceAgentAssistant() {
   const [speechAvailable, setSpeechAvailable] = useState(false);
   const [listening, setListening] = useState(false);
   const [speechError, setSpeechError] = useState("");
+  const [trace, setTrace] = useState([]);
   const [messages, setMessages] = useState([
     {
       id: "welcome",
       role: "assistant",
-      content: "Text agent online. I can operate devices, create appliances, remove devices, and optimize energy usage.",
-      aiUsed: false
+      content: "Agent online. I can operate devices, create appliances, remove devices, and optimize energy usage.",
+      aiUsed: true
     }
   ]);
   const [busy, setBusy] = useState(false);
@@ -101,6 +102,7 @@ export function DeviceAgentAssistant() {
     const assistantId = `assistant-${Date.now()}`;
     setBusy(true);
     setCommand("");
+    setTrace([]);
     setMessages((prev) => [
       ...prev,
       { id: `user-${Date.now()}`, role: "user", content: current },
@@ -114,9 +116,15 @@ export function DeviceAgentAssistant() {
             window.localStorage.setItem(SESSION_KEY, metadata.session_id);
             setSessionId(metadata.session_id);
           }
+          if (Array.isArray(metadata.trace) && metadata.trace.length) {
+            setTrace(metadata.trace);
+          }
           setMessages((prev) =>
             prev.map((msg) => (msg.id === assistantId ? { ...msg, aiUsed: metadata.ai_used } : msg))
           );
+        },
+        onTrace: (entry) => {
+          setTrace((prev) => [...prev, entry]);
         },
         onToken: (token) => {
           setMessages((prev) =>
@@ -202,8 +210,7 @@ export function DeviceAgentAssistant() {
                   <X className="h-4 w-4" />
                 </button>
               </div>
-              <div className="mt-4 grid grid-cols-3 gap-2 text-xs text-slate-300">
-                <StatusPill icon={Zap} label="Local first" />
+              <div className="mt-4 grid grid-cols-2 gap-2 text-xs text-slate-300">
                 <StatusPill icon={BrainCircuit} label="ADK tools" />
                 <StatusPill icon={Cpu} label="Gemini" />
               </div>
@@ -245,6 +252,29 @@ export function DeviceAgentAssistant() {
                     </div>
                   </motion.div>
                 ))}
+              </div>
+
+              <div className="rounded-[8px] border border-cyan-200/10 bg-slate-950/45 p-3">
+                <div className="mb-2 flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-cyan-200/80">
+                  <GitBranch className="h-3.5 w-3.5" />
+                  Multi-agent trace
+                </div>
+                <div className="custom-scrollbar max-h-32 space-y-2 overflow-y-auto pr-1">
+                  {trace.length ? (
+                    trace.slice(-8).map((entry, index) => (
+                      <div key={`${entry.event}-${index}`} className="grid grid-cols-[88px_1fr] gap-2 text-xs">
+                        <span className="truncate rounded-[6px] bg-cyan-300/10 px-2 py-1 text-cyan-100">{entry.agent}</span>
+                        <span className="min-w-0 rounded-[6px] bg-white/[0.04] px-2 py-1 text-slate-300">
+                          {entry.message}
+                        </span>
+                      </div>
+                    ))
+                  ) : (
+                    <div className="rounded-[6px] bg-white/[0.04] px-2 py-2 text-xs text-slate-500">
+                      Waiting for the next ADK run.
+                    </div>
+                  )}
+                </div>
               </div>
 
               <form onSubmit={submitCommand} className="flex gap-2">
