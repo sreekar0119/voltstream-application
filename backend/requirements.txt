@@ -6,6 +6,9 @@ SQLAlchemy==2.0.36
 google-generativeai==0.8.6
 google-cloud-aiplatform==1.153.1
 google-adk==1.0.0
+pg8000>=1.31.2
+pymysql
+cryptography
 google-genai==1.75.0
 Deprecated>=1.2.14,<2.0.0
 chromadb==0.5.23

@@ -6,6 +6,8 @@ from app.agents.context import require_db
 from app.agents.prompts import ADVISOR_INSTRUCTION
 from app.agents.tooling import named_tool, trace_tool_callback
 from app.core.config import settings
+from google.adk.agents import Agent
+
 from app.tools.device_tools import (
     get_active_devices as get_active_devices_tool,
     get_device_status as get_device_status_tool,
@@ -14,6 +16,7 @@ from app.tools.energy_tools import (
     calculate_total_consumption as calculate_total_consumption_tool,
     recommend_energy_saving as recommend_energy_saving_tool,
 )
+from app.tools.rag_tool import query_energy_documents as query_energy_documents_tool
 
 
 _AGENT = None
@@ -43,11 +46,16 @@ def register_advisor_tools() -> list[Any]:
         """Find the highest-impact currently active devices to review for savings."""
         return recommend_energy_saving_tool(require_db())
 
+    async def query_energy_documents(query: str) -> dict[str, Any]:
+        """Search indexed VoltStream energy PDFs for grounded technical recommendations."""
+        return await query_energy_documents_tool(query)
+
     _TOOLS = [
         FunctionTool(func=named_tool("get_active_devices", get_active_devices)),
         FunctionTool(func=named_tool("get_device_status", get_device_status)),
         FunctionTool(func=named_tool("calculate_total_consumption", calculate_total_consumption)),
         FunctionTool(func=named_tool("recommend_energy_saving", recommend_energy_saving)),
+        FunctionTool(func=named_tool("query_energy_documents", query_energy_documents)),
     ]
     return _TOOLS
 
@@ -57,7 +65,7 @@ def build_advisor_agent():
     if _AGENT is not None:
         return _AGENT
 
-    from google.adk.agents import Agent
+    #from google.adk.agents import Agent
 
     _AGENT = Agent(
         name="advisor_agent",

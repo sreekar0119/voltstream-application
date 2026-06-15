@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { api } from "../../services/api.js";
 
 const SESSION_KEY = "voltstream-device-agent-session";
+const DEVICE_MUTATION_TOOLS = new Set(["toggle_device", "create_device", "delete_device"]);
 
 function createSessionId() {
   if (globalThis.crypto?.randomUUID) {
@@ -26,6 +27,15 @@ function getStoredSessionId() {
   const next = createSessionId();
   window.localStorage.setItem(SESSION_KEY, next);
   return next;
+}
+
+function shouldRefreshDevices(result) {
+  if (result?.changed) return true;
+
+  const workflowChanged = (result?.workflow ?? []).some((step) => DEVICE_MUTATION_TOOLS.has(step.tool));
+  const traceChanged = (result?.trace ?? []).some((entry) => DEVICE_MUTATION_TOOLS.has(entry.tool));
+
+  return workflowChanged || traceChanged;
 }
 
 export function DeviceAgentAssistant() {
@@ -140,7 +150,7 @@ export function DeviceAgentAssistant() {
             : msg
         )
       );
-      if (result.changed) {
+      if (shouldRefreshDevices(result)) {
         window.dispatchEvent(new CustomEvent("voltstream:devices-updated", { detail: result }));
       }
     } catch (error) {

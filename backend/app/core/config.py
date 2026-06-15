@@ -29,8 +29,8 @@ class Settings(BaseModel):
             "http://localhost:5173,http://127.0.0.1:5173",
         )
     )
-    gemini_api_key: str = os.getenv("GEMINI_API_KEY", "")
-    gemini_model: str = os.getenv("GEMINI_MODEL", "gemini-1.5-flash")
+    #gemini_api_key: str = os.getenv("GEMINI_API_KEY", "")
+    #gemini_model: str = os.getenv("GEMINI_MODEL", "gemini-1.5-flash")
     vertex_ai_project: str = os.getenv("VERTEX_AI_PROJECT", os.getenv("GOOGLE_CLOUD_PROJECT", ""))
     vertex_ai_location: str = os.getenv("VERTEX_AI_LOCATION", "us-central1")
     vertex_ai_model: str = os.getenv("VERTEX_AI_MODEL", "gemini-2.5-flash")
@@ -40,7 +40,9 @@ class Settings(BaseModel):
         else None
     )
     embedding_model: str = os.getenv("EMBEDDING_MODEL", "all-MiniLM-L6-v2")
-    database_url: Path = _path(os.getenv("DATABASE_URL", ""), BASE_DIR / "voltstream.db")
+    #database_url: Path = _path(os.getenv("DATABASE_URL", ""), BASE_DIR / "voltstream.db")
+    database_url: str = os.getenv("DATABASE_URL", "")
+
     documents_dir: Path = _path(os.getenv("DOCUMENTS_DIR", ""), BASE_DIR / "documents")
     chroma_db_dir: Path = _path(os.getenv("CHROMA_DB_DIR", ""), BASE_DIR / "chroma_db")
     rag_collection_name: str = os.getenv("RAG_COLLECTION_NAME", "voltstream_documents")

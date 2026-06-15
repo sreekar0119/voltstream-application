@@ -1,9 +1,14 @@
 from __future__ import annotations
 
 import asyncio
-from pathlib import Path
+import os
+from functools import lru_cache
+from typing import TYPE_CHECKING
 
 from app.core.config import settings
+
+if TYPE_CHECKING:
+    from google.genai import Client
 
 
 SYSTEM_PROMPT = """
@@ -30,7 +35,7 @@ def _empty_response_reason(response) -> str:
     prompt_feedback = getattr(response, "prompt_feedback", None)
     block_reason = getattr(prompt_feedback, "block_reason", None)
     if block_reason:
-        return f"Gemini blocked the prompt before generating text. Reason: {block_reason}."
+        return f"Vertex AI blocked the prompt before generating text. Reason: {block_reason}."
 
     candidates = getattr(response, "candidates", []) or []
     if candidates:
@@ -39,28 +44,31 @@ def _empty_response_reason(response) -> str:
          reason_value = getattr(finish_reason, "value", finish_reason)
          reason = reason_name or str(reason_value)
          if reason == "MAX_TOKENS":
-             return "Gemini stopped because the output token limit was reached before usable text was returned. Try a shorter question."
+             return "Vertex AI stopped because the output token limit was reached before usable text was returned. Try a shorter question."
          if reason == "SAFETY":
-             return "Gemini did not return text because the response was blocked by safety filters."
-         return f"Gemini returned no text. Finish reason: {reason}."
+             return "Vertex AI did not return text because the response was blocked by safety filters."
+         return f"Vertex AI returned no text. Finish reason: {reason}."
 
-    return "Gemini returned no text. Please try rephrasing the question."
-
-
-def _configure_genai():
-    if not settings.gemini_api_key:
-        raise RuntimeError("GEMINI_API_KEY is not configured.")
-
-    import google.generativeai as genai
-
-    genai.configure(api_key=settings.gemini_api_key)
-    return genai
+    return "Vertex AI returned no text. Please try rephrasing the question."
 
 
-def _build_model(genai):
-    return genai.GenerativeModel(
-        settings.gemini_model,
-        system_instruction=SYSTEM_PROMPT,
+@lru_cache(maxsize=1)
+def _vertex_client() -> "Client":
+    if not settings.vertex_ai_project:
+        raise RuntimeError("VERTEX_AI_PROJECT or GOOGLE_CLOUD_PROJECT is not configured.")
+
+    if settings.google_application_credentials:
+        os.environ.setdefault(
+            "GOOGLE_APPLICATION_CREDENTIALS",
+            str(settings.google_application_credentials),
+        )
+
+    from google import genai
+
+    return genai.Client(
+        vertexai=True,
+        project=settings.vertex_ai_project,
+        location=settings.vertex_ai_location,
     )
 
 
@@ -82,13 +90,18 @@ def _build_model(genai):
 
 
 async def generate_energy_answer(message: str) -> str:
-    genai = _configure_genai()
-    model = _build_model(genai)
+    from google.genai import types
 
+    client = _vertex_client()
     response = await asyncio.to_thread(
-        model.generate_content,
-        message,
-        generation_config={"temperature": 0.45, "max_output_tokens": 500},
+        client.models.generate_content,
+        model=settings.vertex_ai_model,
+        contents=message,
+        config=types.GenerateContentConfig(
+            system_instruction=SYSTEM_PROMPT,
+            temperature=0.45,
+            max_output_tokens=500,
+        ),
     )
 
     answer = _extract_text(response)

@@ -4,7 +4,6 @@ import asyncio
 import hashlib
 import sys
 from pathlib import Path
-
 import tiktoken
 from pypdf import PdfReader
 

@@ -54,6 +54,7 @@ def _agent_label(author: str | None) -> str:
         "orchestrator_agent": "Orchestrator",
         "analyst_agent": "Analyst Agent",
         "advisor_agent": "Advisor Agent",
+        "device_agent": "Device Agent",
     }
     return labels.get(author or "", author or "ADK Runner")
 
@@ -72,6 +73,14 @@ def _tool_trace(author: str | None, name: str, args: dict[str, Any]) -> dict[str
             "agent": "Orchestrator",
             "event": "delegation",
             "message": "[Orchestrator] Passing analysis to Advisor Agent...",
+            "tool": name,
+            "args": args,
+        }
+    if name == "device_agent":
+        return {
+            "agent": "Orchestrator",
+            "event": "delegation",
+            "message": "[Orchestrator] Routing device operation to Device Agent...",
             "tool": name,
             "args": args,
         }

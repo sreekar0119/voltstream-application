@@ -7,3 +7,9 @@ env/
 *.log
 Dockerfile
 .dockerignore
+.env
+.env.*
+*.db
+secrets/
+.git/
+.github/
